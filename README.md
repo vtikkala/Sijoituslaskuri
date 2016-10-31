@@ -1,3 +1,4 @@
 # Sijoituslaskuri
 
 Testikommentti.
+Varjokommentti.
