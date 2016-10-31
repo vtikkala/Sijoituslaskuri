@@ -1,1 +1,3 @@
 # Sijoituslaskuri
+
+Testikommentti.
