@@ -10,14 +10,16 @@ public class Instrumentti {
     private double sijTuotto; // Sijoituskohteen tuotto-oletus
     private double sijMerkintaPalkkio; // Sijoituskohteen merkintäpalkkio (%)
     private double sijLunastusPalkkio; // Sijoituskohteen lunastuspalkkio (%)
+    private double sijOsuus; // Sijoituskohteen osuus koko portfoliossa (%)
     
     public Instrumentti(String tunnus, String nimi, double tuotto, 
-            double merkintaPalkkio, double lunastusPalkkio) {
+            double merkintaPalkkio, double lunastusPalkkio, double osuus) {
         this.sijTunnus = tunnus;
         this.sijNimi = nimi;
         this.sijTuotto = tuotto;
         this.sijMerkintaPalkkio = merkintaPalkkio;
         this.sijLunastusPalkkio = lunastusPalkkio;
+        this.sijOsuus = osuus;
     }
     
     public boolean setTunnus(String tunnus) {
@@ -65,5 +67,13 @@ public class Instrumentti {
         return this.sijLunastusPalkkio;
     }
     
+    public boolean setOsuus(double osuus) {
+        this.sijOsuus = osuus;
+        return true;
+    }
+    
+    public double getOsuus() {
+        return this.sijOsuus;
+    }
     
 }
