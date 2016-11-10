@@ -10,7 +10,7 @@ public class Instrumentti {
     private double sijTuotto; // Sijoituskohteen tuotto-oletus
     private double sijMerkintaPalkkio; // Sijoituskohteen merkintäpalkkio (%)
     private double sijLunastusPalkkio; // Sijoituskohteen lunastuspalkkio (%)
-    private double sijOsuus; // Sijoituskohteen osuus koko portfoliossa (%)
+    private double sijOsuus; // Sijoituskohteen osuus koko portfoliossa (%) POISTETAAN TÄÄLTÄ!
     
     public Instrumentti(String tunnus, String nimi, double tuotto, 
             double merkintaPalkkio, double lunastusPalkkio, double osuus) {
