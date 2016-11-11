@@ -1,5 +1,9 @@
-package ville.harjoitukset.sijoituslaskuri;
+package ville.harjoitukset.sijoituslaskuri.ui;
 
+import ville.harjoitukset.sijoituslaskuri.sovelluslogiikka.Suunnitelma;
+import ville.harjoitukset.sijoituslaskuri.sovelluslogiikka.Simulaattori;
+import ville.harjoitukset.sijoituslaskuri.sovelluslogiikka.Portfolio;
+import ville.harjoitukset.sijoituslaskuri.sovelluslogiikka.Instrumentti;
 import java.util.Scanner;
 
 /**
