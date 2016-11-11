@@ -31,22 +31,22 @@ public class InstrumenttiTest {
     
     @Test
     public void konstruktoriAsettaaTuoton() {
-        assertEquals("10.00", i.getTuotto());
+        assertTrue(i.getTuotto() == 10.00);
     }
     
     @Test
     public void konstruktoriAsettaaMerkintapalkkion() {
-        assertEquals("2.00", i.getMerkintaPalkkio());
+        assertTrue(i.getMerkintaPalkkio() == 2.00);
     }
     
     @Test
     public void konstruktoriAsettaaLunastuspalkkion() {
-        assertEquals("1.00", i.getLunastusPalkkio());
+        assertTrue(i.getLunastusPalkkio() == 1.00);
     }
     
     @Test
     public void konstruktoriAsettaaOsuuden() {
-        assertEquals("100.00", i.getOsuus());
+        assertTrue(i.getOsuus() == 100.00);
     } 
     
 }

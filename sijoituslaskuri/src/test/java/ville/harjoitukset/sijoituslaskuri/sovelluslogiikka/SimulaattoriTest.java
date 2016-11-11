@@ -28,7 +28,7 @@ public class SimulaattoriTest {
 
     @Test
     public void laskeaanArvoLopussa() {
-        assertTrue(s.arvoLopussa() > 10000);
+        assertTrue(s.arvoLopussa() < 10000);
     }
     
 }
