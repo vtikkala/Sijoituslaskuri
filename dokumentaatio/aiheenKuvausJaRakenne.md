@@ -16,5 +16,5 @@ Käyttäjä pystyy määrittelemään sovellukseen:
 Syötettyjen tietojen pohjalta laskuri antaa tulokset, joiden avulla käyttäjä voi vertailla eri sijoituskohteita ja niiden soveltuvuutta hänen tarpeisiinsa.
 
 ##Luokkakaavio:
-![Luokkakaavio](/luokkakaavio.png "Luokkakaavio")
+![Luokkakaavio](https://github.com/vtikkala/Sijoituslaskuri/blob/master/dokumentaatio/luokkakaavio.png "Luokkakaavio")
 
