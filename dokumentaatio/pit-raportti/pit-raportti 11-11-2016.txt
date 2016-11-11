@@ -1,0 +1,90 @@
+cd /home/yanis/workspace/Sijoituslaskuri/sijoituslaskuri; JAVA_HOME=/usr/lib/jvm/java-1.8.0-openjdk-1.8.0.111-1.b16.fc24.x86_64 /home/yanis/netbeans-8.2/java/maven/bin/mvn org.pitest:pitest-maven:mutationCoverage
+Scanning for projects...
+                                                                        
+------------------------------------------------------------------------
+Building sijoituslaskuri 1.0-SNAPSHOT
+------------------------------------------------------------------------
+
+--- pitest-maven:1.1.8:mutationCoverage (default-cli) @ sijoituslaskuri ---
+Found plugin : Default csv report plugin
+Found plugin : Default xml report plugin
+Found plugin : Default html report plugin
+Found plugin : Default limit mutations plugin
+Found shared classpath plugin : Default mutation engine
+Adding org.pitest:pitest to SUT classpath
+Mutating from /home/yanis/workspace/Sijoituslaskuri/sijoituslaskuri/target/classes
+9:25:06 PM PIT >> INFO : Verbose logging is disabled. If you encounter an problem please enable it before reporting an issue.
+9:25:07 PM PIT >> INFO : Sending 3 test classes to minion
+9:25:07 PM PIT >> INFO : Sent tests to minion
+9:25:07 PM PIT >> INFO : MINION : 9:25:07 PM PIT >> INFO : Checking environment
+
+9:25:07 PM PIT >> INFO : MINION : 9:25:07 PM PIT >> INFO : Found  10 tests
+
+9:25:07 PM PIT >> INFO : MINION : 9:25:07 PM PIT >> INFO : Dependency analysis reduced number of potential tests by 0
+
+9:25:07 PM PIT >> INFO : MINION : 9:25:07 PM PIT >> INFO : 10 tests received
+
+-9:25:07 PM PIT >> INFO : Calculated coverage in 0 seconds.
+9:25:07 PM PIT >> INFO : Created  5 mutation test units
+9:25:10 PM PIT >> WARNING : Minion exited abnormally due to TIMED_OUT
+/9:25:12 PM PIT >> INFO : Completed in 5 seconds
+================================================================================
+- Timings
+================================================================================
+> scan classpath : < 1 second
+> coverage and dependency analysis : < 1 second
+> build mutation tests : < 1 second
+> run mutation analysis : 5 seconds
+--------------------------------------------------------------------------------
+> Total  : 5 seconds
+--------------------------------------------------------------------------------
+================================================================================
+- Statistics
+================================================================================
+>> Generated 54 mutations Killed 13 (24%)
+>> Ran 33 tests (0.61 tests per mutation)
+================================================================================
+- Mutators
+================================================================================
+> org.pitest.mutationtest.engine.gregor.mutators.ConditionalsBoundaryMutator
+>> Generated 3 Killed 1 (33%)
+> KILLED 1 SURVIVED 2 TIMED_OUT 0 NON_VIABLE 0 
+> MEMORY_ERROR 0 NOT_STARTED 0 STARTED 0 RUN_ERROR 0 
+> NO_COVERAGE 0 
+--------------------------------------------------------------------------------
+> org.pitest.mutationtest.engine.gregor.mutators.IncrementsMutator
+>> Generated 3 Killed 2 (67%)
+> KILLED 1 SURVIVED 1 TIMED_OUT 1 NON_VIABLE 0 
+> MEMORY_ERROR 0 NOT_STARTED 0 STARTED 0 RUN_ERROR 0 
+> NO_COVERAGE 0 
+--------------------------------------------------------------------------------
+> org.pitest.mutationtest.engine.gregor.mutators.VoidMethodCallMutator
+>> Generated 11 Killed 0 (0%)
+> KILLED 0 SURVIVED 0 TIMED_OUT 0 NON_VIABLE 0 
+> MEMORY_ERROR 0 NOT_STARTED 0 STARTED 0 RUN_ERROR 0 
+> NO_COVERAGE 11 
+--------------------------------------------------------------------------------
+> org.pitest.mutationtest.engine.gregor.mutators.ReturnValsMutator
+>> Generated 25 Killed 8 (32%)
+> KILLED 8 SURVIVED 6 TIMED_OUT 0 NON_VIABLE 0 
+> MEMORY_ERROR 0 NOT_STARTED 0 STARTED 0 RUN_ERROR 0 
+> NO_COVERAGE 11 
+--------------------------------------------------------------------------------
+> org.pitest.mutationtest.engine.gregor.mutators.MathMutator
+>> Generated 8 Killed 0 (0%)
+> KILLED 0 SURVIVED 8 TIMED_OUT 0 NON_VIABLE 0 
+> MEMORY_ERROR 0 NOT_STARTED 0 STARTED 0 RUN_ERROR 0 
+> NO_COVERAGE 0 
+--------------------------------------------------------------------------------
+> org.pitest.mutationtest.engine.gregor.mutators.NegateConditionalsMutator
+>> Generated 4 Killed 2 (50%)
+> KILLED 2 SURVIVED 2 TIMED_OUT 0 NON_VIABLE 0 
+> MEMORY_ERROR 0 NOT_STARTED 0 STARTED 0 RUN_ERROR 0 
+> NO_COVERAGE 0 
+--------------------------------------------------------------------------------
+------------------------------------------------------------------------
+BUILD SUCCESS
+------------------------------------------------------------------------
+Total time: 7.039s
+Finished at: Fri Nov 11 21:25:12 EET 2016
+Final Memory: 9M/240M
