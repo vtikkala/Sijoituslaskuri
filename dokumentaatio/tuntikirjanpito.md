@@ -5,3 +5,4 @@ Päivä | Tunnit | Kuvaus
 03.11.2016 | 0.5h | Aihekuvauksen lisääminen
 10.11.2016 | 3.0h | Koodattu ensimmäiset luokat
 11.11.2016 | 4.5h | Yksikkötestit, PIT, Checkstyle, Luokkakaavio
+18.11.2016 | 4.5h | Kasvatettu koodin abstraktiotasoa ja muodostettu uusia luokkia
