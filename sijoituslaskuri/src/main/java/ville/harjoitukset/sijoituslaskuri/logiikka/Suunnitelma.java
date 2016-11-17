@@ -1,4 +1,4 @@
-package ville.harjoitukset.sijoituslaskuri.sovelluslogiikka;
+package ville.harjoitukset.sijoituslaskuri.logiikka;
 
 /**
  *

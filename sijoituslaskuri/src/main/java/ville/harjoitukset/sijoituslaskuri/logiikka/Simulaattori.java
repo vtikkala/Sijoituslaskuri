@@ -1,6 +1,6 @@
-package ville.harjoitukset.sijoituslaskuri.sovelluslogiikka;
+package ville.harjoitukset.sijoituslaskuri.logiikka;
 
-import ville.harjoitukset.sijoituslaskuri.sovelluslogiikka.Portfolio;
+import ville.harjoitukset.sijoituslaskuri.logiikka.Portfolio;
 
 /**
  *

@@ -1,5 +1,6 @@
-package ville.harjoitukset.sijoituslaskuri.sovelluslogiikka;
+package ville.harjoitukset.sijoituslaskuri.logiikka;
 
+import ville.harjoitukset.sijoituslaskuri.logiikka.Instrumentti;
 import org.junit.After;
 import org.junit.AfterClass;
 import org.junit.Before;
