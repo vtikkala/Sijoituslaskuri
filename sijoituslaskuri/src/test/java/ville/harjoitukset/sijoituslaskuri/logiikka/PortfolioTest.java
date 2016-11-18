@@ -8,7 +8,7 @@ import org.junit.Before;
 import org.junit.BeforeClass;
 import org.junit.Test;
 import static org.junit.Assert.*;
-import ville.harjoitukset.sijoituslaskuri.logiikka.Instrumentti;
+import ville.harjoitukset.sijoituslaskuri.instrumentit.*;
 
 /**
  *
@@ -27,19 +27,19 @@ public class PortfolioTest {
         assertEquals("Portfolio 1", p.getNimi());
     }
     
-//    @Test
-//    public void setteriLisaaInstrumentin() {
-//        Instrumentti i = new Instrumentti("Rahasto", "Rahastonimi 1", 10.00, 2.00, 1.00, 100.00);     
-//        p.lisaaPortfolioon(i);
-//        assertEquals("Rahastonimi 1", p.getPortfolio().get(0).getNimi());
-//    }
+    @Test
+    public void setteriLisaaInstrumentin() {
+        Rahasto r = new Rahasto("Rahasto", "Rahastonimi 1", 2, 10.00, 100.00, 1, 2.00, 1.00, 1.00);
+        p.lisaaPortfolioon(r);
+        assertEquals("Rahastonimi 1", p.getPortfolio().get(0).getNimi());
+    }
     
-//    @Test
-//    public void setteriPoistaaInstrumentin() {
-//        Instrumentti i = new Instrumentti("Rahasto", "Rahastonimi 1", 10.00, 2.00, 1.00, 100.00);     
-//        p.lisaaPortfolioon(i);
-//        p.poistaPortfoliosta("Rahastonimi 1");
-//        assertTrue(p.getPortfolio().isEmpty());
-//    }
+    @Test
+    public void setteriPoistaaInstrumentin() {
+        Rahasto r = new Rahasto("Rahasto", "Rahastonimi 1", 2, 10.00, 100.00, 1, 2.00, 1.00, 1.00);     
+        p.lisaaPortfolioon(r);
+        p.poistaPortfoliosta("Rahastonimi 1");
+        assertTrue(p.getPortfolio().isEmpty());
+    }
 
 }
