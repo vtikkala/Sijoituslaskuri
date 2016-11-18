@@ -11,7 +11,7 @@ public class Rahasto extends Instrumentti implements Simuloitava {
     private Parametrit parametrit;
     
     public Rahasto(String tunnus, String nimi, int luokka, double tuotto, double osuus, 
-            int tyyppi, double merkintapalkkio, double lunastuspalkkio, double hallinnointipalkkio){
+            int tyyppi, double merkintapalkkio, double lunastuspalkkio, double hallinnointipalkkio) {
         super(tunnus, nimi);
         this.parametrit = new Parametrit(luokka, tyyppi, osuus, tuotto, merkintapalkkio,
             lunastuspalkkio, hallinnointipalkkio);
