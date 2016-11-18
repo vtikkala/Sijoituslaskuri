@@ -1,7 +1,7 @@
 package ville.harjoitukset.sijoituslaskuri.instrumentit;
 
-import ville.harjoitukset.sijoituslaskuri.logiikka.Instrumentti;
 import ville.harjoitukset.sijoituslaskuri.logiikka.*;
+import ville.harjoitukset.sijoituslaskuri.instrumentit.*;
 
 /**
  *
@@ -9,30 +9,24 @@ import ville.harjoitukset.sijoituslaskuri.logiikka.*;
  */
 public class Rahasto extends Instrumentti implements Simuloitava {
     private Parametrit parametrit;
-    private String rahastotyyppi; // Rahaston tyyppi (kasvu- tai tuotto-osuus)
     
     public Rahasto(String tunnus, String nimi, int luokka, double tuotto, double osuus, 
             int tyyppi, double merkintapalkkio, double lunastuspalkkio, double hallinnointipalkkio){
         super(tunnus, nimi);
-        this.parametrit = new Parametrit(luokka, tyyppi, tuotto, merkintapalkkio,
-            lunastuspalkkio, hallinnointipalkkio);  
+        this.parametrit = new Parametrit(luokka, tyyppi, osuus, tuotto, merkintapalkkio,
+            lunastuspalkkio, hallinnointipalkkio);
     }
     
     // Osuus poistettava konstruktorilta!!
     
-    public boolean setRahastotyyppi(String tyyppi) {
-        if (tyyppi.equals("kasvu") || tyyppi.equals("tuotto")) {
-            this.rahastotyyppi = tyyppi;
-            return true;
-        } else {
-            return false;
-        }
+    public boolean setRahastotyyppi(int tyyppi) {
+        this.parametrit.setRahastotyyppi(tyyppi);
+        return true;
     }
     
-    public String getRahastotyyppi() {
-        return this.rahastotyyppi;
+    public int getRahastotyyppi() {
+        return this.parametrit.getRahastotyyppi();
     }
-    
     
     public boolean setMerkintaPalkkio(double merkintapalkkio) {
         this.parametrit.setMerkintapalkkio(merkintapalkkio);
@@ -43,31 +37,26 @@ public class Rahasto extends Instrumentti implements Simuloitava {
         return this.parametrit.getMerkintapalkkio();
     }
     
-    public boolean setLunastusPalkkio(double lunastusPalkkio) {
-        this.lunastusPalkkio = lunastusPalkkio;
+    public boolean setLunastusPalkkio(double lunastuspalkkio) {
+        this.parametrit.setLunastuspalkkio(lunastuspalkkio);
         return true;
     }
     
-    public double getLunastusPalkkio() {
-        return this.lunastusPalkkio;
+    public double getLunastuspalkkio() {
+        return this.parametrit.getLunastuspalkkio();
     }
     
-    public boolean setHallinnointiPalkkio(double hallinnointiPalkkio) {
-        this.hallinnointiPalkkio = hallinnointiPalkkio;
+    public boolean setHallinnointipalkkio(double hallinnointipalkkio) {
+        this.parametrit.setHallinnointipalkkio(hallinnointipalkkio);
         return true;
     }
     
-    public double getHallinnointiPalkkio() {
-        return this.hallinnointiPalkkio;
+    public double getHallinnointipalkkio() {
+        return this.parametrit.getHallinnointipalkkio();
     }
     
     private boolean setOmaisuusluokka() {
-        super.setOmaisuusluokka(2);
-        return true;
-    }
-    
-    public boolean setParametrit(double merkintapalkkio) {
-        this.parametrit.setMerkintapalkkio(merkintapalkkio);
+        this.parametrit.setOmaisuusluokka(2); // rahastolla aina 2.
         return true;
     }
     

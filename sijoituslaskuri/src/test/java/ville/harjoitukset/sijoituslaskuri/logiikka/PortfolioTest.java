@@ -27,19 +27,19 @@ public class PortfolioTest {
         assertEquals("Portfolio 1", p.getNimi());
     }
     
-    @Test
-    public void setteriLisaaInstrumentin() {
-        Instrumentti i = new Instrumentti("Rahasto", "Rahastonimi 1", 10.00, 2.00, 1.00, 100.00);     
-        p.lisaaPortfolioon(i);
-        assertEquals("Rahastonimi 1", p.getPortfolio().get(0).getNimi());
-    }
+//    @Test
+//    public void setteriLisaaInstrumentin() {
+//        Instrumentti i = new Instrumentti("Rahasto", "Rahastonimi 1", 10.00, 2.00, 1.00, 100.00);     
+//        p.lisaaPortfolioon(i);
+//        assertEquals("Rahastonimi 1", p.getPortfolio().get(0).getNimi());
+//    }
     
-    @Test
-    public void setteriPoistaaInstrumentin() {
-        Instrumentti i = new Instrumentti("Rahasto", "Rahastonimi 1", 10.00, 2.00, 1.00, 100.00);     
-        p.lisaaPortfolioon(i);
-        p.poistaPortfoliosta("Rahastonimi 1");
-        assertTrue(p.getPortfolio().isEmpty());
-    }
+//    @Test
+//    public void setteriPoistaaInstrumentin() {
+//        Instrumentti i = new Instrumentti("Rahasto", "Rahastonimi 1", 10.00, 2.00, 1.00, 100.00);     
+//        p.lisaaPortfolioon(i);
+//        p.poistaPortfoliosta("Rahastonimi 1");
+//        assertTrue(p.getPortfolio().isEmpty());
+//    }
 
 }

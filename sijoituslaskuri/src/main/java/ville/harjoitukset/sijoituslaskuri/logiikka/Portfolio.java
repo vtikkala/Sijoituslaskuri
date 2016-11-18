@@ -1,6 +1,7 @@
 package ville.harjoitukset.sijoituslaskuri.logiikka;
 
-import ville.harjoitukset.sijoituslaskuri.logiikka.Instrumentti;
+import ville.harjoitukset.sijoituslaskuri.instrumentit.*;
+
 import java.util.*;
 
 /**
@@ -8,7 +9,7 @@ import java.util.*;
  * @author Ville Tikkala
  */
 public class Portfolio {
-    private ArrayList<Instrumentti> portfolio;
+    private ArrayList<Rahasto> portfolio;
     private String portfolioNimi;
     
     public Portfolio(String nimi) {
@@ -16,7 +17,7 @@ public class Portfolio {
         this.portfolioNimi = nimi;
     }
     
-    public boolean lisaaPortfolioon(Instrumentti kohde) {
+    public boolean lisaaPortfolioon(Rahasto kohde) {
         portfolio.add(kohde);
         return true;
     }
@@ -40,7 +41,7 @@ public class Portfolio {
         return this.portfolioNimi;
     }
     
-    public ArrayList<Instrumentti> getPortfolio() {
+    public ArrayList<Rahasto> getPortfolio() {
         return portfolio;
     }
     
