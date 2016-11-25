@@ -305,10 +305,8 @@ public class Kayttoliittyma extends javax.swing.JFrame {
 
     private void lisaaSijoituskohdeActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_lisaaSijoituskohdeActionPerformed
         // TODO add your handling code here:
-        lisaaSijoituskohdeIkkuna.setVisible(rootPaneCheckingEnabled);
-        
+        lisaaSijoituskohdeIkkuna.setVisible(rootPaneCheckingEnabled);    
     }//GEN-LAST:event_lisaaSijoituskohdeActionPerformed
-
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
     private javax.swing.ButtonGroup buttonGroup1;
