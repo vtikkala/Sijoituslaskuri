@@ -17,27 +17,24 @@ public abstract class Instrumentti {
         this.nimi = nimi;
     }
     
-    public boolean setTunnus(String tunnus) {
+    public void setTunnus(String tunnus) {
         this.tunnus = tunnus;
-        return true;
     }
     
     public String getTunnus() {
         return this.tunnus;
     }
     
-    public boolean setNimi(String nimi) {
+    public void setNimi(String nimi) {
         this.nimi = nimi;
-        return true;
     }
     
     public String getNimi() {
         return this.nimi;
     }
     
-    public boolean setOsuus(double osuus) {
+    public void setOsuus(double osuus) {
         this.osuus = osuus;
-        return true;
     }
     
     public double getOsuus() {

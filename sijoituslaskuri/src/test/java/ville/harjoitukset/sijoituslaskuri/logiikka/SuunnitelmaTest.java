@@ -32,6 +32,23 @@ public class SuunnitelmaTest {
     public void konstruktoriAsettaaSijoituksen() {
         assertTrue(s.getSijoitus() == 1000.00);
     }
-
     
+    @Test
+    public void setteriAsettaaSijoitusajan() {
+        s.setSijoitusaika(55);
+        assertEquals(55, s.getSijoitusaika());
+    }
+    
+    @Test
+    public void setteriAsettaaTiheyden() {
+        s.setTiheys(12);
+        assertEquals(12, s.getTiheys());
+    }
+    
+    @Test
+    public void setteriAsettaaSijoituksen() {
+        s.setSijoitus(9000.00);
+        assertTrue(s.getSijoitus() == 9000.00);
+    }
+
 }

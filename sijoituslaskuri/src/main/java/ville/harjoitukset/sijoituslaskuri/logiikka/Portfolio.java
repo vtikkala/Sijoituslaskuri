@@ -32,9 +32,8 @@ public class Portfolio {
         return false;
     }
     
-    public boolean setNimi(String nimi) {
+    public void setNimi(String nimi) {
         this.portfolioNimi = nimi;
-        return true;
     }
     
     public String getNimi() {

@@ -16,10 +16,12 @@ import ville.harjoitukset.sijoituslaskuri.instrumentit.*;
  */
 public class PortfolioTest {
     static Portfolio p;
+    static Rahasto r;
     
     @Before
     public void setUp() {
         p = new Portfolio("Portfolio 1");
+        r = new Rahasto("Rahasto", "Rahastonimi 1", 2, 10.00, 100.00, 1, 2.00, 1.00, 1.50);
     }
 
     @Test
@@ -29,8 +31,7 @@ public class PortfolioTest {
     
     @Test
     public void setteriLisaaInstrumentin() {
-        Rahasto r = new Rahasto("Rahasto", "Rahastonimi 1", 2, 10.00, 100.00, 1, 2.00, 1.00, 1.00);
-        p.lisaaPortfolioon(r);
+        assertTrue(p.lisaaPortfolioon(r));
         assertEquals("Rahastonimi 1", p.getPortfolio().get(0).getNimi());
     }
     
@@ -38,8 +39,15 @@ public class PortfolioTest {
     public void setteriPoistaaInstrumentin() {
         Rahasto r = new Rahasto("Rahasto", "Rahastonimi 1", 2, 10.00, 100.00, 1, 2.00, 1.00, 1.00);     
         p.lisaaPortfolioon(r);
-        p.poistaPortfoliosta("Rahastonimi 1");
+        assertFalse(p.poistaPortfoliosta("Rahastonimi 3"));
+        assertTrue(p.poistaPortfoliosta("Rahastonimi 1"));
         assertTrue(p.getPortfolio().isEmpty());
+    }
+    
+    @Test
+    public void setteriAsettaaNimen() {
+        p.setNimi("Testiportfolio");
+        assertEquals("Testiportfolio", p.getNimi());
     }
 
 }

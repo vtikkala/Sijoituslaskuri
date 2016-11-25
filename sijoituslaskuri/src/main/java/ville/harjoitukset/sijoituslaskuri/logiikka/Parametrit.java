@@ -36,63 +36,56 @@ public class Parametrit {
         this.hallinnointipalkkio = hallinnointipalkkio;
     }
     
-    public boolean setOmaisuusluokka(int luokka) {
+    public void setOmaisuusluokka(int luokka) {
         this.omaisuusluokka = luokka;
-        return true;
     }
     
     public int getOmaisuusluokka() {
         return this.omaisuusluokka;
     }
     
-    public boolean setTuotto(double tuotto) {
+    public void setTuotto(double tuotto) {
         this.tuotto = tuotto;
-        return true;
     }
     
     public double getTuotto() {
         return this.tuotto;
     }
     
-    public boolean setMerkintapalkkio(double merkintapalkkio) {
+    public void setMerkintapalkkio(double merkintapalkkio) {
         this.merkintapalkkio = merkintapalkkio;
-        return true;
     }
     
     public double getMerkintapalkkio() {
         return this.merkintapalkkio;
     }
     
-    public boolean setLunastuspalkkio(double lunastuspalkkio) {
+    public void setLunastuspalkkio(double lunastuspalkkio) {
         this.lunastuspalkkio = lunastuspalkkio;
-        return true;
     }
     
     public double getLunastuspalkkio() {
         return this.lunastuspalkkio;
     }
     
-    public boolean setHallinnointipalkkio(double hallinnointipalkkio) {
+    public void setHallinnointipalkkio(double hallinnointipalkkio) {
         this.hallinnointipalkkio = hallinnointipalkkio;
-        return true;
     }
     
     public double getHallinnointipalkkio() {
         return this.hallinnointipalkkio;
     }
     
-    public boolean setRahastotyyppi(int tyyppi) {
+    public void setRahastotyyppi(int tyyppi) {
         this.rahastotyyppi = tyyppi;
-        return true;
     }
     
     public int getRahastotyyppi() {
         return this.rahastotyyppi;
     }
     
-    public boolean setOsuus(double osuus) {
+    public void setOsuus(double osuus) {
         this.osuus = osuus;
-        return true;
     }
     
     public double getOsuus() {

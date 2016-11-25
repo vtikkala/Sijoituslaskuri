@@ -19,45 +19,36 @@ public class Rahasto extends Instrumentti implements Simuloitava {
     
     // Osuus poistettava konstruktorilta!!
     
-    public boolean setRahastotyyppi(int tyyppi) {
+    public void setRahastotyyppi(int tyyppi) {
         this.parametrit.setRahastotyyppi(tyyppi);
-        return true;
     }
     
     public int getRahastotyyppi() {
         return this.parametrit.getRahastotyyppi();
     }
     
-    public boolean setMerkintaPalkkio(double merkintapalkkio) {
+    public void setMerkintaPalkkio(double merkintapalkkio) {
         this.parametrit.setMerkintapalkkio(merkintapalkkio);
-        return true;
     }
     
     public double getMerkintapalkkio() {
         return this.parametrit.getMerkintapalkkio();
     }
     
-    public boolean setLunastusPalkkio(double lunastuspalkkio) {
+    public void setLunastusPalkkio(double lunastuspalkkio) {
         this.parametrit.setLunastuspalkkio(lunastuspalkkio);
-        return true;
     }
     
     public double getLunastuspalkkio() {
         return this.parametrit.getLunastuspalkkio();
     }
     
-    public boolean setHallinnointipalkkio(double hallinnointipalkkio) {
+    public void setHallinnointipalkkio(double hallinnointipalkkio) {
         this.parametrit.setHallinnointipalkkio(hallinnointipalkkio);
-        return true;
     }
     
     public double getHallinnointipalkkio() {
         return this.parametrit.getHallinnointipalkkio();
-    }
-    
-    private boolean setOmaisuusluokka() {
-        this.parametrit.setOmaisuusluokka(2); // rahastolla aina 2.
-        return true;
     }
     
     @Override

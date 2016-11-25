@@ -17,27 +17,24 @@ public class Suunnitelma {
         this.sijoitus = maara;
     }
     
-    public boolean setSijoitusaika(int aika) {
+    public void setSijoitusaika(int aika) {
         this.sijoitusaika = aika;
-        return true;
     }
     
     public int getSijoitusaika() {
         return this.sijoitusaika;
     }
     
-    public boolean setTiheys(int tiheys) {
+    public void setTiheys(int tiheys) {
         this.tiheys = tiheys;
-        return true;
     }
     
     public int getTiheys() {
         return this.tiheys;
     }
     
-    public boolean setSijoitus(double maara) {
+    public void setSijoitus(double maara) {
         this.sijoitus = maara;
-        return true;
     }
     
     public double getSijoitus() {

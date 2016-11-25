@@ -46,6 +46,50 @@ public class RahastoTest {
         assertTrue(r.getParametrit().getLunastuspalkkio() == 1.00);
         assertTrue(r.getParametrit().getHallinnointipalkkio() == 1.50);
     }
-
+    
+    @Test
+    public void setteriAsettaaRahastotyypin() {
+        r.setRahastotyyppi(2);
+        assertEquals(2, r.getRahastotyyppi());
+    }
+    
+    @Test
+    public void setteriAsettaaMerkintapalkkion() {
+        r.setMerkintaPalkkio(10.00);
+        assertTrue(r.getMerkintapalkkio() == 10.00);
+    }
+    
+    @Test
+    public void setteriAsettaaLunastuspalkkion() {
+        r.setLunastusPalkkio(15.00);
+        assertTrue(r.getLunastuspalkkio() == 15.00);
+    }
+    
+    @Test
+    public void setteriAsettaaHallinnointipalkkion() {
+        r.setHallinnointipalkkio(5.00);
+        assertTrue(r.getHallinnointipalkkio() == 5.00);
+    }
+    
+    @Test
+    public void setteriAsettaaTunnuksen() {
+        r.setTunnus("Rahasto");
+        assertEquals("Rahasto", r.getTunnus());
+        
+    }
+    
+    @Test
+    public void setteriAsettaaNimen() {
+        r.setNimi("Rahasto 2");
+        assertEquals("Rahasto 2", r.getNimi());
+    }
+    
+    @Test
+    public void setteriAsettaaOsuuden() {
+        r.setOsuus(50.00);
+        assertTrue(r.getOsuus() == 50.00);
+    }
+    
+    
     
 }
