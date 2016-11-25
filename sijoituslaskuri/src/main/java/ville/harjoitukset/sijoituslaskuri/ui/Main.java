@@ -1,5 +1,6 @@
 package ville.harjoitukset.sijoituslaskuri.ui;
 
+import javax.swing.SwingUtilities;
 import ville.harjoitukset.sijoituslaskuri.logiikka.Suunnitelma;
 import ville.harjoitukset.sijoituslaskuri.logiikka.Simulaattori;
 import ville.harjoitukset.sijoituslaskuri.logiikka.Portfolio;
@@ -19,6 +20,18 @@ public class Main {
         
         while (true) {
             System.out.println("Tervetuloa Sijoituslaskuriin!");
+            System.out.println("Valitse 1=graafinen, muuten komentorivi");
+            int valinta = Integer.parseInt(lukija.nextLine());
+            
+            if (valinta == 1) {
+                java.awt.EventQueue.invokeLater(new Runnable() {
+                    public void run() {
+                        new Kayttoliittyma().setVisible(true);
+                    }
+                });
+                break;
+            }
+            
             System.out.println("Anna nimi portfoliollesi:");
             String nimi = lukija.nextLine();
             Portfolio portfolio = new Portfolio(nimi);
