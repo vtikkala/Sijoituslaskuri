@@ -15,6 +15,11 @@ public class Simulaattori {
     private int tiheys;
     private double sijoitus;
 
+    /**
+     *
+     * @param kohteet
+     * @param suunnitelma
+     */
     public Simulaattori(Portfolio kohteet, Suunnitelma suunnitelma) {
         this.portfolio = kohteet;
         this.sijoitusaika = suunnitelma.getSijoitusaika();
@@ -22,6 +27,10 @@ public class Simulaattori {
         this.sijoitus = suunnitelma.getSijoitus();
     }
     
+    /**
+     * Laskee portfolion arvon sijoitusajan lopussa. Toteutus kesken.
+     * @return sijoitusten arvo lopussa
+     */
     public double arvoLopussa() {
         
         double sijoitusYhteensa = 0.00;
