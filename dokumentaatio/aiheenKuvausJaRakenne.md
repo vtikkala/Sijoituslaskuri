@@ -21,5 +21,9 @@ Syötettyjen tietojen pohjalta laskuri antaa tulokset, joiden avulla käyttäjä
 ##Sekvenssikaaviot:
 
 ###Sijoitusinstrumentin lisääminen portfolioon
-![Sekvenssikaavio](https://www.websequencediagrams.com/cgi-bin/cdraw?lz=dGl0bGUgU2lqb2l0dXNpbnN0cnVtZW50aW4gbGlzw6TDpG1pbmVuIHBvcnRmb2xpb29uCgppOkkAIAl0aS0-ICJQOgAYCSI6bGlzYWFQACcKKAAiDCBpKQo&s=default "Sekvenssikaavio")
+![Sekvenssikaavio](https://www.websequencediagrams.com/cgi-bin/cdraw?lz=dGl0bGUgSW5zdHJ1bWVudGluIGxpc8Okw6RtaW5lbiBwb3J0Zm9saW9vbgoKaToAHwp0aS0-ICJwOlAAGQgiOmxpc2FhAAcJb24oACIMIGkpCg&s=default "Sekvenssikaavio")
+
+###Simulointi
+![Sekvenssikaavio](https://www.websequencediagrams.com/cgi-bin/cdraw?lz=dGl0bGUgU2lqb2l0dXN0ZW4gc2ltdWxvaW50aQoKS8OkeXR0w7ZsaWl0dHltw6QtPipTaW11bGFhdHRvcmk6YXJ2b0xvcHVzc2EoUG9ydGZvbGlvIHAsIFN1dW5uaXRlbG1hIHMpCgApDC0-AEYROnJldHVybiBkb3VibGUKZGVzdHJveSAAXwwKCgoK&s=default "Sekvenssikaavio")
+
 
