@@ -18,3 +18,8 @@ Syötettyjen tietojen pohjalta laskuri antaa tulokset, joiden avulla käyttäjä
 ##Luokkakaavio:
 ![Luokkakaavio](https://github.com/vtikkala/Sijoituslaskuri/blob/master/dokumentaatio/luokkakaavio.png "Luokkakaavio")
 
+##Sekvenssikaaviot:
+
+###Sijoitusinstrumentin lisääminen portfolioon
+![Sekvenssikaavio](https://www.websequencediagrams.com/cgi-bin/cdraw?lz=dGl0bGUgU2lqb2l0dXNpbnN0cnVtZW50aW4gbGlzw6TDpG1pbmVuIHBvcnRmb2xpb29uCgppOkkAIAl0aS0-ICJQOgAYCSI6bGlzYWFQACcKKAAiDCBpKQo&s=default "Sekvenssikaavio")
+
