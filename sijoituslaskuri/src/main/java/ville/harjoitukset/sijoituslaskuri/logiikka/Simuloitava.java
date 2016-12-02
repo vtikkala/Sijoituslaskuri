@@ -3,8 +3,7 @@ package ville.harjoitukset.sijoituslaskuri.logiikka;
 import ville.harjoitukset.sijoituslaskuri.instrumentit.*;
 
 /**
- *
- * @author Ville Tikkala
+ * Rajapintaluokka, jonka toteuttavat luokat pystyvät hyödyntämään simulaattoria.
  */
 public interface Simuloitava {
 

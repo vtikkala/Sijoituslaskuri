@@ -4,23 +4,25 @@ import ville.harjoitukset.sijoituslaskuri.logiikka.*;
 import ville.harjoitukset.sijoituslaskuri.instrumentit.*;
 
 /**
- *
- * @author Ville Tikkala
+ * Luokan tehtävänä on tarjota rakenteet rahastotyyppiselle sijoitusinstrumentille.
+ * Luokka sisältää myös metodit, joilla sijoituskohteen tietoja voi muuttaa.
  */
 public class Rahasto extends Instrumentti implements Simuloitava {
     private Parametrit parametrit;
     
     /**
-     *
-     * @param tunnus
-     * @param nimi
-     * @param luokka
-     * @param tuotto
-     * @param osuus
-     * @param tyyppi
-     * @param merkintapalkkio
-     * @param lunastuspalkkio
-     * @param hallinnointipalkkio
+     * Konstruktorin avulla perustetaan rahastolle kaikki tarvittavat alkuarvot,
+     * jotta se voidaan liittää osaksi portfoliota ja jotta sitä voidaan käyttää
+     * simuloinnissa.
+     * @param tunnus Sijoitusinstrumentin tunnus (rahastolla aina 2)
+     * @param nimi Rahaston nimi
+     * @param luokka Sijoitusinstrumentin omaisuusluokka (rahastolla aina 2)
+     * @param tuotto Rahaston tuotto-oletus (%)
+     * @param osuus Kyseisen rahaston osuus koko portfoliosta (%)
+     * @param tyyppi Rahaston tyyppi (1=kasvuosuus, 2=tuotto-osuus)
+     * @param merkintapalkkio Rahaston merkintapalkkio liukulukuna (%)
+     * @param lunastuspalkkio Rahaston lunastuspalkkio liukulukuna (%)
+     * @param hallinnointipalkkio Rahaston hallinnointipalkkio liukulukuna (%)
      */
     public Rahasto(String tunnus, String nimi, int luokka, double tuotto, double osuus, 
             int tyyppi, double merkintapalkkio, double lunastuspalkkio, double hallinnointipalkkio) {

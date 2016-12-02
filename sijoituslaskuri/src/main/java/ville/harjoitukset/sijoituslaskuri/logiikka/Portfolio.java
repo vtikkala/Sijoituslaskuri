@@ -5,16 +5,15 @@ import ville.harjoitukset.sijoituslaskuri.instrumentit.*;
 import java.util.*;
 
 /**
- *
- * @author Ville Tikkala
+ * Luokan tarkoituksena on hallinnoida sijoitusportfolioon liitettyjä sijoituskohteita.
  */
 public class Portfolio {
     private ArrayList<Rahasto> portfolio;
     private String portfolioNimi;
     
     /**
-     *
-     * @param nimi
+     * Konstruktorin avulla lisätään portfoliolle nimi.
+     * @param nimi Portfolion nimi merkkijonona
      */
     public Portfolio(String nimi) {
         this.portfolio = new ArrayList();

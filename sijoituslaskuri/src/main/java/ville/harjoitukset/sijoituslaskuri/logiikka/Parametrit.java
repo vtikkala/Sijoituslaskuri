@@ -3,7 +3,9 @@ package ville.harjoitukset.sijoituslaskuri.logiikka;
 import ville.harjoitukset.sijoituslaskuri.instrumentit.*;
 
 /**
- * @author Ville Tikkala
+ * Luokan tarkoituksena on hallita sijoitusinstrumentin simuloinnissa käytettäviä
+ * laskentaparametreja ja siten siitä luodaan normaalisti ilmentymiä vain Instrumentti-
+ * luokan aliluokkien ilmentymien kautta.
  */
 
 public class Parametrit {
@@ -15,13 +17,11 @@ public class Parametrit {
     private double lunastuspalkkio;
     private double hallinnointipalkkio;
     
-    // Yleiskonstruktori
-
     /**
-     *
-     * @param luokka
-     * @param osuus
-     * @param tuotto
+     * Yleiskonstruktori, joka ei ota kantaa sijoitusinstrumentin tyyppiin.
+     * @param luokka Sijoitusinstrumentin omaisuusluokka kokonaislukuna (1 = tili, 2 = rahasto)
+     * @param osuus Sijoitusinstrumentin osuus koko portfoliosta liukulukuna (%)
+     * @param tuotto Sijoitusinstrumentille määritelty tuotto liukulukuna (%)
      */
     
     public Parametrit(int luokka, double osuus, double tuotto) {
@@ -33,14 +33,15 @@ public class Parametrit {
     // Konstruktori rahastolle
 
     /**
-     *
-     * @param luokka
-     * @param rahastotyyppi
-     * @param osuus
-     * @param tuotto
-     * @param merkintapalkkio
-     * @param lunastuspalkkio
-     * @param hallinnointipalkkio
+     * Konstruktori rahastotyyppiselle sijoitusinstrumentille, joka sisältää kaikki
+     * pakolliset tiedot, jotka tarvitaan rahaston simuloinnissa.
+     * @param luokka Rahaston omaisuusluokka kokonaislukuna (aina 2)
+     * @param rahastotyyppi Rahaston tyyppi (1=kasvuosuus, 2=tuotto-osuus)
+     * @param osuus Kyseisen rahaston osuus koko portfoliosta (%)
+     * @param tuotto Rahaston tuotto-oletus (%)
+     * @param merkintapalkkio Rahaston merkintapalkkio liukulukuna (%)
+     * @param lunastuspalkkio Rahaston lunastuspalkkio liukulukuna (%)
+     * @param hallinnointipalkkio Rahaston hallinnointipalkkio liukulukuna (%)
      */
     
     public Parametrit(int luokka, int rahastotyyppi, double osuus, double tuotto, 
@@ -66,7 +67,7 @@ public class Parametrit {
     /**
      * Palauttaa sijoituskohteen omaisuusluokan kokonaislukuna.
      * Esimerkiksi 1=tili, 2=rahasto.
-     * @return
+     * @return sijoituskohteen omaisuusluokka
      */
     public int getOmaisuusluokka() {
         return this.omaisuusluokka;

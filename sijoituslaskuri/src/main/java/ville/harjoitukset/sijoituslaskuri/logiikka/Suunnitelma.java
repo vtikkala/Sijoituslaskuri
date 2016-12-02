@@ -3,8 +3,7 @@ package ville.harjoitukset.sijoituslaskuri.logiikka;
 import ville.harjoitukset.sijoituslaskuri.instrumentit.*;
 
 /**
- *
- * @author Ville Tikkala
+ * Luokan tarkoituksena on hallita sijoitussuunnitelmaan liittyviä tietoja.
  */
 public class Suunnitelma {
     private int sijoitusaika;   // sijoitusaika kokonaisina vuosina
@@ -12,10 +11,10 @@ public class Suunnitelma {
     private double sijoitus;    // sijoitettava summa (e)
     
     /**
-     *
-     * @param aika
-     * @param tiheys
-     * @param maara
+     * Konstruktorin avulla alustetaan tiedot, joita hyödynnettään simuloinnissa.
+     * @param aika Sijoitusaika kokonaisina vuosina
+     * @param tiheys Sijoitusten tiheys (esim. 1 = kertasijoitus)
+     * @param maara Sijoituksen suuruus
      */
     public Suunnitelma(int aika, int tiheys, double maara) {
         this.sijoitusaika = aika;

@@ -3,8 +3,8 @@ package ville.harjoitukset.sijoituslaskuri.logiikka;
 import ville.harjoitukset.sijoituslaskuri.instrumentit.*;
 
 /**
- *
- * @author Ville Tikkala
+ * Instrumentti-luokka on abstrakti luokka, joka toimii pohjana muille instrumentti
+ * luokille (kuten Rahasto).
  */
 public abstract class Instrumentti {
 //    public Parametrit parametrit; // Sijoituskohteen laskentaparametrit
@@ -13,9 +13,9 @@ public abstract class Instrumentti {
     private double osuus; // Sijoituskohteen osuus koko portfoliossa (%) POISTETAAN TÄÄLTÄ!
     
     /**
-     *
-     * @param tunnus
-     * @param nimi
+     * Konstruktori alustaa luokalle sen pakolliset alkuarvot.
+     * @param tunnus Sijoitusinstrumentin tunnus kokonaislukuna (1 = tili, 2 = rahasto)
+     * @param nimi Sijoitusinstrumentin nimi merkkijonona
      */
     public Instrumentti(String tunnus, String nimi) {           
         this.tunnus = tunnus;

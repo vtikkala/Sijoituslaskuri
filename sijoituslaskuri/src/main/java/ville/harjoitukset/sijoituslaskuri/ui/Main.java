@@ -8,12 +8,16 @@ import ville.harjoitukset.sijoituslaskuri.instrumentit.*;
 import java.util.Scanner;
 
 /**
- *
- * @author Ville Tikkala
+ * Pääohjelma, jonka avulla hallitaan ohjelman toimintaa kokonaisuutena.
+ * Sisältää väliaikaisesti sekä graafisen että komentorivi käyttöliittymän.
  */
 
 public class Main {
     
+    /**
+     * Main-metodi joka käynnisttää ohjelman.
+     * @param args mahdolliset komentoriviargumentit
+     */
     public static void main(String[] args) {
         Scanner lukija = new Scanner(System.in);
         Rahasto rahasto;

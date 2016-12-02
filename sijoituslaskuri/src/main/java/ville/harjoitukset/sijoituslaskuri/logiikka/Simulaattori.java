@@ -3,7 +3,9 @@ package ville.harjoitukset.sijoituslaskuri.logiikka;
 import ville.harjoitukset.sijoituslaskuri.instrumentit.*;
 
 /**
- * @author Ville Tikkala
+ * Luokan tarkoituksena on laskea portfolioon liitettyjen sijoituskohteiden ja
+ * sijoitussuunnitelman pohjalta erilaisia tunnuslukuja, kuten sijoitusten määrä
+ * sijoitusajan lopuksi.
  */
 
 // Laskee tällä hetkellä vain loppusäästön.
@@ -14,12 +16,12 @@ public class Simulaattori {
     private int sijoitusaika;
     private int tiheys;
     private double sijoitus;
-    private boolean laskentaOK;
 
     /**
-     *
-     * @param kohteet
-     * @param suunnitelma
+     * Konstruktorin avulla simulaattorille välitetään simuloinnissa käytettävä
+     * portfolio ja sijoitussuunnitelma.
+     * @param kohteet Sijoitusportfolio
+     * @param suunnitelma Sijoitussuunnitelma
      */
     public Simulaattori(Portfolio kohteet, Suunnitelma suunnitelma) {
         this.portfolio = kohteet;
