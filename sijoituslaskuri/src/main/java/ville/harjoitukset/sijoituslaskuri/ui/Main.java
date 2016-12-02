@@ -39,7 +39,7 @@ public class Main {
             System.out.println("Määrittele sijoituskohteen tunnus (2 = rahasto)");
             int tunnus = Integer.parseInt(lukija.nextLine());
             if (tunnus == 2) {
-                System.out.println("Määrittele rahaston nimi)");
+                System.out.println("Määrittele rahaston nimi");
                 String rahNimi = lukija.nextLine();
                 System.out.println("Määrittele rahaston tuotto prosenttina");
                 double tuotto = Double.parseDouble(lukija.nextLine());

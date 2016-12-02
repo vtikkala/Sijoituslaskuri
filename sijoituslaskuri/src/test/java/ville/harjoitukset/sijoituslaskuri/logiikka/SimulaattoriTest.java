@@ -1,39 +1,54 @@
+/*
+ * To change this license header, choose License Headers in Project Properties.
+ * To change this template file, choose Tools | Templates
+ * and open the template in the editor.
+ */
 package ville.harjoitukset.sijoituslaskuri.logiikka;
 
-import ville.harjoitukset.sijoituslaskuri.logiikka.Instrumentti;
-import ville.harjoitukset.sijoituslaskuri.logiikka.Portfolio;
-import ville.harjoitukset.sijoituslaskuri.logiikka.Suunnitelma;
-import ville.harjoitukset.sijoituslaskuri.logiikka.Simulaattori;
-import ville.harjoitukset.sijoituslaskuri.instrumentit.*;
 import org.junit.After;
 import org.junit.AfterClass;
 import org.junit.Before;
 import org.junit.BeforeClass;
 import org.junit.Test;
 import static org.junit.Assert.*;
+import ville.harjoitukset.sijoituslaskuri.instrumentit.Rahasto;
 
 /**
  *
- * @author Ville Tikkala
+ * @author yanis
  */
 public class SimulaattoriTest {
-    static Simulaattori s;
-    static Instrumentti i;
-    static Portfolio p;
-    static Suunnitelma su;
+        static Simulaattori s;
+        static Simulaattori s2;
+        static Instrumentti i;
+        static Portfolio p;
+        static Portfolio p2;
+        static Suunnitelma su;
+    
+        public SimulaattoriTest() {
+        }
     
     @Before
     public void setUp() {
         Rahasto r = new Rahasto("Rahasto", "Rahastonimi 1", 2, 10.00, 100.00, 1, 2.00, 1.00, 1.00);
+        Rahasto r2 = new Rahasto("Ei rahasto", "Rahastonimi 2", 2, 5.00, 100.00, 1, 2.00, 1.00, 1.00);
         p = new Portfolio("Portfolio 1");
         p.lisaaPortfolioon(r);
-        su = new Suunnitelma(10, 0, 10000.00); 
-        s = new Simulaattori(p, su);     
+        p2 = new Portfolio("Portfolio 2");
+        p2.lisaaPortfolioon(r2);
+        su = new Suunnitelma(30, 0, 1000.00); 
+        s = new Simulaattori(p, su);    
+        s2 = new Simulaattori(p2, su);
     }
 
     @Test
-    public void laskeaanArvoLopussa() {
-        assertTrue(s.arvoLopussa() < 10000);
+    public void testArvoLopussa() {
+        assertTrue(s.arvoLopussa() <= 12873 && s.arvoLopussa() >= 12872);
+    }
+    
+    @Test
+    public void konstruktoriEiAsetaRahastoa() {
+        assertTrue(s2.arvoLopussa() == -1);
     }
     
 }

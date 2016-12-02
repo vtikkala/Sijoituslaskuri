@@ -36,10 +36,12 @@
                 <version>1.1.8</version>
                     <configuration>
                         <targetClasses>
-                            <param>ville.harjoitukset.sijoituslaskuri.*</param>
+                            <param>ville.harjoitukset.sijoituslaskuri.instrumentit.*</param>
+                            <param>ville.harjoitukset.sijoituslaskuri.logiikka.*</param>
                         </targetClasses>
                         <targetTests>
-                            <param>ville.harjoitukset.sijoituslaskuri.*</param>
+                            <param>ville.harjoitukset.sijoituslaskuri.instrumentit.*</param>
+                            <param>ville.harjoitukset.sijoituslaskuri.logiikka.*</param>
                         </targetTests>
                     </configuration>
             </plugin>
