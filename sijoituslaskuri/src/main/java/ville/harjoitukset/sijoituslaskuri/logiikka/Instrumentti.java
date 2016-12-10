@@ -10,7 +10,6 @@ public abstract class Instrumentti {
 //    public Parametrit parametrit; // Sijoituskohteen laskentaparametrit
     private String tunnus; // Sijoituskohteen luokittelu
     private String nimi; // Sijoituskohteen nimi
-    private double osuus; // Sijoituskohteen osuus koko portfoliossa (%) POISTETAAN TÄÄLTÄ!
     
     /**
      * Konstruktori alustaa luokalle sen pakolliset alkuarvot.
@@ -55,24 +54,4 @@ public abstract class Instrumentti {
     public String getNimi() {
         return this.nimi;
     }
-    
-    /**
-     * Asettaa sijoituskohteen osuuden portfoliossa liukulukuna.
-     * Esimerkiksi Amerikka Rahasto A:n 50 % osuus portfoliosta annetaan muodossa 50.00.
-     * @param osuus Sijoituskohteen osuus portfoliosta
-     */
-    public void setOsuus(double osuus) {
-        this.osuus = osuus;
-    }
-    
-    /**
-     * Palauttaa sijoituskohten osuuden portfoliosta liukuluna.
-     * Esimerksi palaute "75.00" tarkoittaa, että sijoituskohteen osuus on 75 % portfoliosta.
-     * @return sijoituskohteen osuus
-     */
-    public double getOsuus() {
-        return this.osuus;
-    }
-    
-    
 }

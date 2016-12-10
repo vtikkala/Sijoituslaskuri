@@ -5,7 +5,7 @@ Lisätietoa [täältä](dokumentaatio/aiheenKuvausJaRakenne.md)
 
 ## PIT-raportti
 
-https://htmlpreview.github.io/?https://github.com/vtikkala/Sijoituslaskuri/blob/master/dokumentaatio/pit-raportti/201612022210/index.html
+https://htmlpreview.github.io/?https://github.com/vtikkala/Sijoituslaskuri/blob/master/dokumentaatio/pit-raportti/201612102139/index.html
 
 ## Checkstyle-raportti
 

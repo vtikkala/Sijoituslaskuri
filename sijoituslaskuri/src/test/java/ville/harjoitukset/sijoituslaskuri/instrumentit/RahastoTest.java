@@ -87,7 +87,7 @@ public class RahastoTest {
     @Test
     public void setteriAsettaaOsuuden() {
         r.setOsuus(50.00);
-        assertTrue(r.getOsuus() == 50.00);
+        assertTrue(r.getParametrit().getOsuus() == 50.00);
     }
     
     

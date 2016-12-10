@@ -104,9 +104,9 @@ public class Rahasto extends Instrumentti implements Simuloitava {
         return this.parametrit.getHallinnointipalkkio();
     }
     
-    @Override
     /**
      * Asetaa rahastolle sen osuuden portfoliosta liukulukuna.
+     * @param osuus Rahaston osuus portfoliosta.
      */
     public void setOsuus(double osuus) {
         this.parametrit.setOsuus(osuus);
