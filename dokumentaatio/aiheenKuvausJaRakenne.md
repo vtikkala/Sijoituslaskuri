@@ -18,6 +18,18 @@ Syötettyjen tietojen pohjalta laskuri antaa tulokset, joiden avulla käyttäjä
 ##Luokkakaavio:
 ![Luokkakaavio](https://github.com/vtikkala/Sijoituslaskuri/blob/master/dokumentaatio/luokkakaavio.png "Luokkakaavio")
 
+##Rakennekuvaus:
+Ohjelma koostuu seuraavista luokista:
+- Main-luokka, jonka tehtävä on käynnistää ohjelman toiminta ja avata graafinen käyttöliittymä.
+- Käyttöliittymä-luokka, jonka tehtävänä on piirtää käyttöliittymä ja ottaa käyttäjältä vastaan toimintoja ja ohjata siten ohjelman toimintaa ja muita komponentteja käyttäjän tarpeiden mukaisesti.
+- Portfolio-luokka, jonka tehtävänä on säilöt käyttäjän valitsemat sijoitusinstrumentit yhdeksi kokonaisuudeksi eli sijoitusportfolioksi.
+- Instrumentti-luokka on eri sijoitusinstrumenttien abstrakti yliluokka.
+- Rahasto-luokka on yksi monista (toistaiseksi ainoa) Instrumentti-luokan aliluokista, jonka tehtävänä varastoida kaikki sijoitusrahastolle ominaiset piirteet. Rahasto-luokka toteuttaa rajapinnan Simuloitava.
+- Simuloitava on rajapinta, jonka toteuttavat luokat pystytään simuloimaan Simulaattorilla.
+- Simulaattori-luokan tehtävä on simuloida käyttäjän määrittelemän sijoitusportfolion ja suunnitelmatietojen pohjalta miten sijoitukset tulisivat kehittymään tulevaisuudessa.
+- Suunnitelma-luokka pitää sisällään käyttäjän sijoitussuunnitelmaan liittyviä tietoja kuten sijoitushorisontin ja sijoitusten määrän.
+- Parametrit-luokka säilöö simulointia varten kaikki sijoitusinstrumentille ominaiset parametrit.
+
 ##Sekvenssikaaviot:
 
 ###Sijoitusinstrumentin lisääminen portfolioon
