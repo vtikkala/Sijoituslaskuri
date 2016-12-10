@@ -1,6 +1,8 @@
 package ville.harjoitukset.sijoituslaskuri.ui;
 
+import java.text.DecimalFormat;
 import java.util.*;
+import javax.swing.DefaultComboBoxModel;
 import javax.swing.DefaultListModel;
 import ville.harjoitukset.sijoituslaskuri.instrumentit.Rahasto;
 import ville.harjoitukset.sijoituslaskuri.logiikka.*;
@@ -11,18 +13,23 @@ import ville.harjoitukset.sijoituslaskuri.logiikka.*;
  */
 public class Kayttoliittyma extends javax.swing.JFrame {
     private Portfolio portfolio;
-    private Suunnitelma suunnitelma;
-    private Simulaattori simulaattori;
+    private ArrayList<Rahasto> rahastot;
     
     /**
      * Creates new form Kayttoliittyma
      */
     public Kayttoliittyma() {
         initComponents();
-        this.portfolio = new Portfolio("Portfolio 1");
-        Rahasto rahasto1 = new Rahasto("Rahasto", "Rahastonimi 1", 2, 10.00, 100.00, 1, 2.00, 1.00, 1.50);
-        this.portfolio.lisaaPortfolioon(rahasto1);
-        
+        portfolio = new Portfolio("Portfolio1");
+        Rahasto rahasto1 = new Rahasto("Rahasto", "Rahastonimi 1", 2, 10.00, 0.00, 1, 2.00, 1.00, 1.50);
+        Rahasto rahasto2 = new Rahasto("Rahasto", "Rahastonimi 2", 2, 1.00, 0.00, 1, 2.00, 1.00, 1.50);
+        Rahasto rahasto3 = new Rahasto("Rahasto", "Rahastonimi 3", 2, 5.00, 0.00, 1, 2.00, 1.00, 1.50);
+        //lista = new DefaultListModel();
+        //lista.addElement(rahasto1);
+        rahastot = new ArrayList<>();
+        rahastot.add(rahasto1);
+        rahastot.add(rahasto2);
+        rahastot.add(rahasto3);
     }
 
     /**
@@ -38,9 +45,7 @@ public class Kayttoliittyma extends javax.swing.JFrame {
         jLabel2 = new javax.swing.JLabel();
         jComboBox1 = new javax.swing.JComboBox<>();
         jLabel3 = new javax.swing.JLabel();
-        jTextField1 = new javax.swing.JTextField();
         jLabel4 = new javax.swing.JLabel();
-        jTextField2 = new javax.swing.JTextField();
         jLabel5 = new javax.swing.JLabel();
         jLabel6 = new javax.swing.JLabel();
         jTextField3 = new javax.swing.JTextField();
@@ -49,7 +54,9 @@ public class Kayttoliittyma extends javax.swing.JFrame {
         jButton4 = new javax.swing.JButton();
         jButton5 = new javax.swing.JButton();
         jScrollPane2 = new javax.swing.JScrollPane();
-        jList2 = new javax.swing.JList<>();
+        jList1 = new javax.swing.JList<>();
+        jComboBox2 = new javax.swing.JComboBox<>();
+        jLabel15 = new javax.swing.JLabel();
         jPanel2 = new javax.swing.JPanel();
         jLabel8 = new javax.swing.JLabel();
         jTextField4 = new javax.swing.JTextField();
@@ -72,19 +79,17 @@ public class Kayttoliittyma extends javax.swing.JFrame {
 
         jLabel2.setText("Omaisuusluokka");
 
-        jComboBox1.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "Item 1", "Item 2", "Item 3", "Item 4" }));
-
-        jLabel3.setText("Sijoituskohteen nimi");
-
-        jLabel4.setText("Tuotto");
-
-        jTextField2.setHorizontalAlignment(javax.swing.JTextField.RIGHT);
-        jTextField2.setText("0,00");
-        jTextField2.addActionListener(new java.awt.event.ActionListener() {
+        jComboBox1.setBackground(new java.awt.Color(254, 254, 254));
+        jComboBox1.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "Tili (ei käytössä)", "Rahasto", "JVK-laina (ei käytössä)" }));
+        jComboBox1.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
-                jTextField2ActionPerformed(evt);
+                jComboBox1ActionPerformed(evt);
             }
         });
+
+        jLabel3.setText("Sijoituskohde");
+
+        jLabel4.setText("Tuotto");
 
         jLabel5.setText("% vuodessa");
 
@@ -101,17 +106,27 @@ public class Kayttoliittyma extends javax.swing.JFrame {
         jLabel7.setText("%");
 
         jButton1.setText("Lisää");
+        jButton1.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                jButton1ActionPerformed(evt);
+            }
+        });
 
         jButton4.setText("Muokkaa");
 
         jButton5.setText("Poista");
 
-        jList2.setModel(new javax.swing.AbstractListModel<String>() {
-            String[] strings = { "Item 1", "Item 2", "Item 3", "Item 4", "Item 5" };
-            public int getSize() { return strings.length; }
-            public String getElementAt(int i) { return strings[i]; }
+        jScrollPane2.setViewportView(jList1);
+
+        jComboBox2.setBackground(new java.awt.Color(254, 254, 254));
+        jComboBox2.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                jComboBox2ActionPerformed(evt);
+            }
         });
-        jScrollPane2.setViewportView(jList2);
+
+        jLabel15.setHorizontalAlignment(javax.swing.SwingConstants.RIGHT);
+        jLabel15.setText("n/a");
 
         javax.swing.GroupLayout jPanel1Layout = new javax.swing.GroupLayout(jPanel1);
         jPanel1.setLayout(jPanel1Layout);
@@ -128,8 +143,8 @@ public class Kayttoliittyma extends javax.swing.JFrame {
                 .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                     .addGroup(jPanel1Layout.createSequentialGroup()
                         .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                            .addComponent(jTextField2)
-                            .addComponent(jTextField3, javax.swing.GroupLayout.DEFAULT_SIZE, 129, Short.MAX_VALUE))
+                            .addComponent(jTextField3, javax.swing.GroupLayout.DEFAULT_SIZE, 129, Short.MAX_VALUE)
+                            .addComponent(jLabel15, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
                         .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                         .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                             .addGroup(jPanel1Layout.createSequentialGroup()
@@ -141,9 +156,9 @@ public class Kayttoliittyma extends javax.swing.JFrame {
                                 .addComponent(jButton1, javax.swing.GroupLayout.PREFERRED_SIZE, 148, javax.swing.GroupLayout.PREFERRED_SIZE)
                                 .addGap(24, 24, 24))))
                     .addGroup(jPanel1Layout.createSequentialGroup()
-                        .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING, false)
-                            .addComponent(jTextField1, javax.swing.GroupLayout.Alignment.LEADING)
-                            .addComponent(jComboBox1, javax.swing.GroupLayout.Alignment.LEADING, 0, 248, Short.MAX_VALUE))
+                        .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
+                            .addComponent(jComboBox1, 0, 248, Short.MAX_VALUE)
+                            .addComponent(jComboBox2, 0, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
                         .addGap(0, 0, Short.MAX_VALUE))))
             .addGroup(jPanel1Layout.createSequentialGroup()
                 .addComponent(jScrollPane2)
@@ -153,6 +168,9 @@ public class Kayttoliittyma extends javax.swing.JFrame {
                     .addComponent(jButton5, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
                 .addGap(24, 24, 24))
         );
+
+        jPanel1Layout.linkSize(javax.swing.SwingConstants.HORIZONTAL, new java.awt.Component[] {jComboBox1, jComboBox2});
+
         jPanel1Layout.setVerticalGroup(
             jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(jPanel1Layout.createSequentialGroup()
@@ -163,12 +181,12 @@ public class Kayttoliittyma extends javax.swing.JFrame {
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
                 .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                     .addComponent(jLabel3)
-                    .addComponent(jTextField1, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
+                    .addComponent(jComboBox2, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
                 .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                     .addComponent(jLabel4)
-                    .addComponent(jTextField2, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addComponent(jLabel5))
+                    .addComponent(jLabel5)
+                    .addComponent(jLabel15))
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
                 .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                     .addComponent(jLabel6)
@@ -184,8 +202,6 @@ public class Kayttoliittyma extends javax.swing.JFrame {
                     .addComponent(jScrollPane2, javax.swing.GroupLayout.PREFERRED_SIZE, 198, javax.swing.GroupLayout.PREFERRED_SIZE))
                 .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
         );
-
-        jPanel1Layout.linkSize(javax.swing.SwingConstants.VERTICAL, new java.awt.Component[] {jTextField1, jTextField2, jTextField3});
 
         jPanel2.setBorder(javax.swing.BorderFactory.createTitledBorder(null, "Suunnitelma", javax.swing.border.TitledBorder.DEFAULT_JUSTIFICATION, javax.swing.border.TitledBorder.DEFAULT_POSITION, new java.awt.Font("Dialog", 1, 12))); // NOI18N
 
@@ -204,6 +220,11 @@ public class Kayttoliittyma extends javax.swing.JFrame {
         jLabel11.setText("vuotta");
 
         jButton6.setText("Laske");
+        jButton6.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                jButton6ActionPerformed(evt);
+            }
+        });
 
         javax.swing.GroupLayout jPanel2Layout = new javax.swing.GroupLayout(jPanel2);
         jPanel2.setLayout(jPanel2Layout);
@@ -335,13 +356,56 @@ public class Kayttoliittyma extends javax.swing.JFrame {
         pack();
     }// </editor-fold>//GEN-END:initComponents
 
-    private void jTextField2ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jTextField2ActionPerformed
-        // TODO add your handling code here:
-    }//GEN-LAST:event_jTextField2ActionPerformed
-
     private void jTextField3ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jTextField3ActionPerformed
         // TODO add your handling code here:
     }//GEN-LAST:event_jTextField3ActionPerformed
+    
+    DefaultListModel uiPortfolio = new DefaultListModel();
+    private void jButton1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton1ActionPerformed
+        double osuus = Double.parseDouble(jTextField3.getText());        
+        this.rahastot.get(jComboBox2.getSelectedIndex()).setOsuus(osuus);
+        uiPortfolio.addElement(this.rahastot.get(jComboBox2.getSelectedIndex()).getNimi());
+        this.portfolio.lisaaPortfolioon(rahastot.get(jComboBox2.getSelectedIndex()));
+        jList1.setModel(uiPortfolio);
+    }//GEN-LAST:event_jButton1ActionPerformed
+
+    private void jComboBox1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jComboBox1ActionPerformed
+        DefaultComboBoxModel kohdeLista = new DefaultComboBoxModel();
+        
+        if (jComboBox1.getSelectedItem().toString().equals("Rahasto")) {
+            for (Rahasto a : this.rahastot) {
+                kohdeLista.addElement(a.getNimi());
+            }
+            jComboBox2.setModel(kohdeLista);
+            String tuotto = Double.toString(this.rahastot.get(jComboBox2.getSelectedIndex()).getParametrit().getTuotto());
+            jLabel15.setText(tuotto);
+            String osuus = Double.toString(this.rahastot.get(jComboBox2.getSelectedIndex()).getParametrit().getOsuus());
+            jTextField3.setText(osuus);
+        } else {
+            kohdeLista.addElement("Ei valittavissa");
+            jComboBox2.setModel(kohdeLista);
+        }
+    }//GEN-LAST:event_jComboBox1ActionPerformed
+
+    private void jComboBox2ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jComboBox2ActionPerformed
+        String tuotto = Double.toString(this.rahastot.get(jComboBox2.getSelectedIndex()).getParametrit().getTuotto());
+        jLabel15.setText(tuotto);
+        String osuus = Double.toString(this.rahastot.get(jComboBox2.getSelectedIndex()).getParametrit().getOsuus());
+        jTextField3.setText(osuus);
+    }//GEN-LAST:event_jComboBox2ActionPerformed
+
+    private void jButton6ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton6ActionPerformed
+        DecimalFormat df2 = new DecimalFormat(".##");
+        
+        double sijoitus = Double.parseDouble(jTextField4.getText());
+        int sijoitusaika = Integer.parseInt(jTextField5.getText());
+        Suunnitelma suunnitelma = new Suunnitelma(sijoitusaika, 1, sijoitus);
+        
+        Simulaattori simulaattori = new Simulaattori(this.portfolio, suunnitelma);
+        
+        String sijoitusLopussa = Double.toString(simulaattori.arvoLopussa());
+        jLabel13.setText(sijoitusLopussa);
+    }//GEN-LAST:event_jButton6ActionPerformed
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
     private javax.swing.JButton jButton1;
@@ -349,12 +413,14 @@ public class Kayttoliittyma extends javax.swing.JFrame {
     private javax.swing.JButton jButton5;
     private javax.swing.JButton jButton6;
     private javax.swing.JComboBox<String> jComboBox1;
+    private javax.swing.JComboBox<String> jComboBox2;
     private javax.swing.JLabel jLabel1;
     private javax.swing.JLabel jLabel10;
     private javax.swing.JLabel jLabel11;
     private javax.swing.JLabel jLabel12;
     private javax.swing.JLabel jLabel13;
     private javax.swing.JLabel jLabel14;
+    private javax.swing.JLabel jLabel15;
     private javax.swing.JLabel jLabel2;
     private javax.swing.JLabel jLabel3;
     private javax.swing.JLabel jLabel4;
@@ -363,14 +429,12 @@ public class Kayttoliittyma extends javax.swing.JFrame {
     private javax.swing.JLabel jLabel7;
     private javax.swing.JLabel jLabel8;
     private javax.swing.JLabel jLabel9;
-    private javax.swing.JList<String> jList2;
+    private javax.swing.JList<String> jList1;
     private javax.swing.JPanel jPanel1;
     private javax.swing.JPanel jPanel2;
     private javax.swing.JPanel jPanel3;
     private javax.swing.JPanel jPanel4;
     private javax.swing.JScrollPane jScrollPane2;
-    private javax.swing.JTextField jTextField1;
-    private javax.swing.JTextField jTextField2;
     private javax.swing.JTextField jTextField3;
     private javax.swing.JTextField jTextField4;
     private javax.swing.JTextField jTextField5;
