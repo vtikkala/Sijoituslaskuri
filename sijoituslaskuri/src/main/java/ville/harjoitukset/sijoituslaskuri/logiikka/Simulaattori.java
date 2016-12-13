@@ -16,6 +16,10 @@ public class Simulaattori {
     private int sijoitusaika;
     private int tiheys;
     private double sijoitus;
+    private double kulutYhteensa;
+    private double tuototYhteensa;
+    private double tuottoprosentti;
+    private double sijoitusYhteensaKaikki;
 
     /**
      * Konstruktorin avulla simulaattorille välitetään simuloinnissa käytettävä
@@ -28,17 +32,37 @@ public class Simulaattori {
         this.sijoitusaika = suunnitelma.getSijoitusaika();
         this.tiheys = suunnitelma.getTiheys();
         this.sijoitus = suunnitelma.getSijoitus();
+        this.kulutYhteensa = 0.00;
+        this.tuototYhteensa = 0.00;
+        this.tuottoprosentti = 0.00;
+        this.sijoitusYhteensaKaikki = 0.00;
         //System.out.println("Sijoitusaika: " + this.sijoitusaika);
         //System.out.println("Tiheys: " + this.tiheys);
         //System.out.println("Sijoitus: " + this.sijoitus);
         
     }
     
+    public double getSijoitus() {
+        return this.sijoitus;
+    }
+    
+    public double getTuotto() {
+        return this.tuototYhteensa;
+    }
+    
+    public double getKulut() {
+        return this.kulutYhteensa;
+    }
+    
+    public double getSijoitusLopussa() {
+        return this.sijoitusYhteensaKaikki;
+    }
+    
     /**
      * Laskee portfolion arvon sijoitusajan lopussa. Toteutus kesken.
      * @return sijoitusten arvo lopussa
      */
-    public double arvoLopussa() {
+    public double simuloi() {
         
         double sijoitusYhteensa = 0.00;
         
@@ -63,23 +87,39 @@ public class Simulaattori {
                 double hallinnointipalkkio = rahasto.getParametrit().getHallinnointipalkkio();
                 //System.out.println("Hallinnointipalkkio: " + hallinnointipalkkio);
                 
-                double sijoitusKesken = ((osuus / 100) * this.sijoitus) * (1 - (merkintapalkkio / 100));
+                double merkintapalkkioEuroa = ((osuus / 100) * this.sijoitus) * (merkintapalkkio / 100);
+                this.kulutYhteensa = this.kulutYhteensa + merkintapalkkioEuroa;
+                
+                double sijoitusKesken = ((osuus / 100) * this.sijoitus) - merkintapalkkioEuroa;
                 //System.out.println("Sijoitus alussa: " + sijoitusKesken);
                
                 for (int x = 0; x < this.sijoitusaika; x++) {
-                    sijoitusKesken = sijoitusKesken * (1 + (tuotto - hallinnointipalkkio) / 100);
+                    double hallinnointipalkkioEuroa = sijoitusKesken * (hallinnointipalkkio / 100);
+                    this.kulutYhteensa = this.kulutYhteensa + hallinnointipalkkioEuroa;
+                    
+                    double tuottoEuroa = sijoitusKesken * (tuotto / 100);
+                    this.tuototYhteensa = this.tuototYhteensa + tuottoEuroa;
+                    
+                    sijoitusKesken = sijoitusKesken + tuottoEuroa - hallinnointipalkkioEuroa;
+                    //sijoitusKesken = sijoitusKesken * (1 + (tuotto / 100)) - hallinnointipalkkioEuroa;
                     //System.out.println("Sijoitus vuoden " + x + " lopussa: " + sijoitusKesken);
                 }
+                 
+                double lunastuspalkkioEuroa = sijoitusKesken * (lunastuspalkkio / 100);
+                this.kulutYhteensa = this.kulutYhteensa + lunastuspalkkioEuroa;
                 
-                double sijoitusLopussa = sijoitusKesken * (1 - (lunastuspalkkio / 100));
+                double sijoitusLopussa = sijoitusKesken - lunastuspalkkioEuroa;
                 //System.out.println("Sijoitus lopussa: " + sijoitusLopussa);
                 
                 sijoitusYhteensa = sijoitusYhteensa + sijoitusLopussa;
+                this.sijoitusYhteensaKaikki = sijoitusYhteensa;
                 
                 //System.out.println("Sijoitus yhteensä: " + sijoitusYhteensa);
+                System.out.println("Tuotot yhteensä: " + this.tuototYhteensa);
+                System.out.println("Kulut yhteensä: " + this.kulutYhteensa);
 
             } else {
-                sijoitusYhteensa = -1;
+                this.sijoitusYhteensaKaikki = -1;
             }
         }
             

@@ -43,12 +43,12 @@ public class SimulaattoriTest {
 
     @Test
     public void testArvoLopussa() {
-        assertTrue(s.arvoLopussa() <= 12873 && s.arvoLopussa() >= 12872);
+        assertTrue(s.simuloi() <= 12873 && s.simuloi() >= 12872);
     }
     
     @Test
     public void konstruktoriEiAsetaRahastoa() {
-        assertTrue(s2.arvoLopussa() == -1);
+        assertTrue(s2.simuloi() == -1);
     }
     
 }
