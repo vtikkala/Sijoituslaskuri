@@ -48,7 +48,8 @@ public class SimulaattoriTest {
     
     @Test
     public void konstruktoriEiAsetaRahastoa() {
-        assertTrue(s2.simuloi() == -1);
+        s2.simuloi();
+        assertTrue(s2.getSijoitusLopussa() == -1);
     }
     
 }
