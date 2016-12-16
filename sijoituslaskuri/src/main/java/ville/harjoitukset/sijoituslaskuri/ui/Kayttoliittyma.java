@@ -1,5 +1,6 @@
 package ville.harjoitukset.sijoituslaskuri.ui;
 
+import java.awt.event.KeyEvent;
 import java.io.File;
 import java.io.FileNotFoundException;
 import java.text.DecimalFormat;
@@ -140,6 +141,14 @@ public class Kayttoliittyma extends javax.swing.JFrame {
                 jTextField3ActionPerformed(evt);
             }
         });
+        jTextField3.addKeyListener(new java.awt.event.KeyAdapter() {
+            public void keyTyped(java.awt.event.KeyEvent evt) {
+                jTextField3KeyTyped(evt);
+            }
+            public void keyPressed(java.awt.event.KeyEvent evt) {
+                jTextField3KeyPressed(evt);
+            }
+        });
 
         jLabel7.setText("%");
 
@@ -245,6 +254,16 @@ public class Kayttoliittyma extends javax.swing.JFrame {
 
         jTextField4.setHorizontalAlignment(javax.swing.JTextField.RIGHT);
         jTextField4.setText("0,00");
+        jTextField4.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                jTextField4ActionPerformed(evt);
+            }
+        });
+        jTextField4.addKeyListener(new java.awt.event.KeyAdapter() {
+            public void keyTyped(java.awt.event.KeyEvent evt) {
+                jTextField4KeyTyped(evt);
+            }
+        });
 
         jLabel9.setText("euroa");
 
@@ -252,6 +271,11 @@ public class Kayttoliittyma extends javax.swing.JFrame {
 
         jTextField5.setHorizontalAlignment(javax.swing.JTextField.RIGHT);
         jTextField5.setText("0");
+        jTextField5.addKeyListener(new java.awt.event.KeyAdapter() {
+            public void keyTyped(java.awt.event.KeyEvent evt) {
+                jTextField5KeyTyped(evt);
+            }
+        });
 
         jLabel11.setText("vuotta");
 
@@ -457,6 +481,7 @@ public class Kayttoliittyma extends javax.swing.JFrame {
     
     DefaultListModel uiPortfolio = new DefaultListModel();
     private void jButton1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton1ActionPerformed
+
         double osuus = Double.parseDouble(jTextField3.getText());        
         rahastot.get(jComboBox2.getSelectedIndex()).setOsuus(osuus);
         //this.rahastot.get(jComboBox2.getSelectedIndex()).setOsuus(osuus);
@@ -543,6 +568,39 @@ public class Kayttoliittyma extends javax.swing.JFrame {
         jList1.updateUI();
         
     }//GEN-LAST:event_jButton5ActionPerformed
+
+    private void jTextField3KeyTyped(java.awt.event.KeyEvent evt) {//GEN-FIRST:event_jTextField3KeyTyped
+        char merkki = evt.getKeyChar();
+        if (Character.isLetter(merkki) && !evt.isAltDown()) {
+            evt.consume();
+        }
+        
+    }//GEN-LAST:event_jTextField3KeyTyped
+
+    private void jTextField3KeyPressed(java.awt.event.KeyEvent evt) {//GEN-FIRST:event_jTextField3KeyPressed
+        
+        
+    }//GEN-LAST:event_jTextField3KeyPressed
+
+    private void jTextField4ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jTextField4ActionPerformed
+        // TODO add your handling code here:
+    }//GEN-LAST:event_jTextField4ActionPerformed
+
+    private void jTextField4KeyTyped(java.awt.event.KeyEvent evt) {//GEN-FIRST:event_jTextField4KeyTyped
+        // TODO add your handling code here:
+        char merkki = evt.getKeyChar();
+        if (Character.isLetter(merkki) && !evt.isAltDown()) {
+            evt.consume();
+        }
+    }//GEN-LAST:event_jTextField4KeyTyped
+
+    private void jTextField5KeyTyped(java.awt.event.KeyEvent evt) {//GEN-FIRST:event_jTextField5KeyTyped
+        // TODO add your handling code here:
+        char merkki = evt.getKeyChar();
+        if (!Character.isDigit(merkki)) {
+            evt.consume();
+        }
+    }//GEN-LAST:event_jTextField5KeyTyped
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
     private javax.swing.JButton jButton1;
