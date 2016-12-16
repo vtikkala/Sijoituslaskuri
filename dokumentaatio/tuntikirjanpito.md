@@ -11,3 +11,5 @@ Päivä | Tunnit | Kuvaus
 02.12.2016 | 7.5h | Käyttöliittymää hiottu ja siihen oli tarkoitus saada jo kunnon toimintaa, mutta tuli virheitä ja pakitin takaisinpäin. Laskentaa korjattu ja toimii nyt paremmin. Javadocit, sekvenssikaaviot, testausraportit lisätty/päivitetty.
 09.12.2016 | 5.0h | Swing-kirjaton ja GUI Builderin opiskelua
 10.12.2016 | 8.0h | Käyttöliittymän ohjelmointia, dokumentaation päivitystä, testiraporttien päivitys
+13.12.2016 | 4.0h | Käyttöliittymän hiontaa.
+16.12.2016 | 5.0h | Viimeistelyä ohjelmaan sekä tiedostonluvun rakentaminen (sijoituskohteet.txt).
