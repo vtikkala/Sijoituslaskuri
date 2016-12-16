@@ -1,10 +1,10 @@
 #Sijoituslaskurin käyttöohjeet
 
 ##Ohjelman lataaminen koneelle
-Lataa sijoituslaskuri.jar-tiedosto koneelle haluamaasi hakemistoon.
+Lataa sijoituslaskuri.jar ja sijoituskohteet.txt tiedosdot koneelle haluamaasi hakemistoon.
 
 ##Ohjelman käynnistäminen
-Ohjelman saa käynnistettyä komentoriviltä siirtymällä hakemistoon, johon Sijoituslaskuri on tallennettu ja kirjoittamalla komentoriville seuraavan komennon: java -jar sijoituslaskuri.jar
+Ohjelman saa käynnistettyä komentoriviltä siirtymällä hakemistoon, johon Sijoituslaskuri on tallennettu ja kirjoittamalla komentoriville seuraavan komennon: java -jar sijoituslaskuri.jar.
 
 ##Ohjelman käyttäminen
 Sijoituslaskurin kehitystyö on vielä käynnissä, joten sovelluksen käytössä pitää olla tarkkana!
