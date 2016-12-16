@@ -112,6 +112,10 @@ public class Rahasto extends Instrumentti implements Simuloitava {
         this.parametrit.setOsuus(osuus);
     }
     
+    public double getOsuus() {
+        return this.parametrit.getOsuus();
+    }
+    
     /**
      * Palauttaa rahaston simuloinnissa tarvittavat parametrit.
      * @return rahaston simulointiparametrit
