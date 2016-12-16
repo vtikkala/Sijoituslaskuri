@@ -90,6 +90,12 @@ public class RahastoTest {
         assertTrue(r.getParametrit().getOsuus() == 50.00);
     }
     
+    @Test
+    public void getteriHakeeOsuuden() {
+        r.setOsuus(75.00);
+        assertTrue(r.getOsuus() == 75.00);
+    }
+    
     
     
 }

@@ -70,28 +70,28 @@ public class Simulaattori {
             if (portfolio.getPortfolio().get(i).getTunnus().equals("Rahasto")) {
                 rahasto = portfolio.getPortfolio().get(i);
                 int rahastotyyppi = rahasto.getParametrit().getRahastotyyppi();
-                System.out.println("Rahastotyyppi: " + rahastotyyppi);
+                //System.out.println("Rahastotyyppi: " + rahastotyyppi);
                 
                 double osuus = rahasto.getParametrit().getOsuus();
-                System.out.println("Osuus: " + osuus);
+                //System.out.println("Osuus: " + osuus);
                 
                 double tuotto = rahasto.getParametrit().getTuotto();
-                System.out.println("Tuotto: " + tuotto);
+                //System.out.println("Tuotto: " + tuotto);
                 
                 double merkintapalkkio = rahasto.getParametrit().getMerkintapalkkio();
-                System.out.println("Merkintapalkkio: " + merkintapalkkio);
+                //System.out.println("Merkintapalkkio: " + merkintapalkkio);
                 
                 double lunastuspalkkio = rahasto.getParametrit().getLunastuspalkkio();
-                System.out.println("Lunastuspalkkio: " + lunastuspalkkio);
+                //System.out.println("Lunastuspalkkio: " + lunastuspalkkio);
                 
                 double hallinnointipalkkio = rahasto.getParametrit().getHallinnointipalkkio();
-                System.out.println("Hallinnointipalkkio: " + hallinnointipalkkio);
+                //System.out.println("Hallinnointipalkkio: " + hallinnointipalkkio);
                 
                 double merkintapalkkioEuroa = ((osuus / 100) * this.sijoitus) * (merkintapalkkio / 100);
                 this.kulutYhteensa = this.kulutYhteensa + merkintapalkkioEuroa;
                 
                 double sijoitusKesken = ((osuus / 100) * this.sijoitus) - merkintapalkkioEuroa;
-                System.out.println("Sijoitus alussa: " + sijoitusKesken);
+                //System.out.println("Sijoitus alussa: " + sijoitusKesken);
                
                 for (int x = 0; x < this.sijoitusaika; x++) {
                     double hallinnointipalkkioEuroa = sijoitusKesken * (hallinnointipalkkio / 100);
@@ -101,22 +101,21 @@ public class Simulaattori {
                     this.tuototYhteensa = this.tuototYhteensa + tuottoEuroa;
                     
                     sijoitusKesken = sijoitusKesken + tuottoEuroa - hallinnointipalkkioEuroa;
-                    //sijoitusKesken = sijoitusKesken * (1 + (tuotto / 100)) - hallinnointipalkkioEuroa;
-                    System.out.println("Sijoitus vuoden " + x + " lopussa: " + sijoitusKesken);
+                    //System.out.println("Sijoitus vuoden " + x + " lopussa: " + sijoitusKesken);
                 }
                  
                 double lunastuspalkkioEuroa = sijoitusKesken * (lunastuspalkkio / 100);
                 this.kulutYhteensa = this.kulutYhteensa + lunastuspalkkioEuroa;
                 
                 double sijoitusLopussa = sijoitusKesken - lunastuspalkkioEuroa;
-                System.out.println("Sijoitus lopussa: " + sijoitusLopussa);
+                //System.out.println("Sijoitus lopussa: " + sijoitusLopussa);
                 
                 sijoitusYhteensa = sijoitusYhteensa + sijoitusLopussa;
                 this.sijoitusYhteensaKaikki = sijoitusYhteensa;
                 
-                System.out.println("Sijoitus yhteensä: " + sijoitusYhteensa);
-                System.out.println("Tuotot yhteensä: " + this.tuototYhteensa);
-                System.out.println("Kulut yhteensä: " + this.kulutYhteensa);
+                //System.out.println("Sijoitus yhteensä: " + sijoitusYhteensa);
+                //System.out.println("Tuotot yhteensä: " + this.tuototYhteensa);
+                //System.out.println("Kulut yhteensä: " + this.kulutYhteensa);
 
             } else {
                 this.sijoitusYhteensaKaikki = -1;

@@ -1,0 +1,2139 @@
+<html>
+<head>
+<style type='text/css'>
+html, body, div, span, p, blockquote, pre {
+	margin: 0;
+	padding: 0;
+	border: 0;
+	outline: 0;
+	font-weight: inherit;
+	font-style: inherit;
+	font-size: 100%;
+	font-family: inherit;
+	vertical-align: baseline;
+}
+
+body{
+	line-height: 1;
+	color: black;
+	background: white;
+	margin-left: 20px;
+}
+
+.src { 
+	border: 1px solid #dddddd;
+	padding-top: 10px;
+	padding-right: 5px;
+	padding-left: 5px;
+	font-family: Consolas, Courier, monospace;
+}
+
+
+.covered {background-color: #ddffdd}
+.uncovered {background-color: #ffdddd}
+.killed {background-color: #aaffaa}
+.survived {background-color: #ffaaaa}
+.uncertain {background-color: #dde7ef}
+.run_error {background-color: #dde7ef}
+.na {background-color: #eeeeee}
+.timed_out {background-color: #dde7ef}
+.non_viable {background-color: #aaffaa}
+.memory_error {background-color: #dde7ef}
+.not_started {background-color: #dde7ef; color : red}
+.no_coverage {background-color: #ffaaaa}
+
+
+.pop {outline:none; }
+.pop strong {line-height:30px;}
+.pop {text-decoration:none;}
+.pop span { z-index:10;display:none; padding:14px 20px; margin-top:-30px; margin-left:28px; width:800px; line-height:16px; word-wrap:break-word; }
+.pop:hover span{ display:inline; position:absolute; color:#111; border:1px solid #DCA; background:#fffAF0;}
+
+.pop span { border-radius:4px; -moz-border-radius: 4px; -webkit-border-radius: 4px; -moz-box-shadow: 5px 5px 8px #CCC; -webkit-box-shadow: 5px 5px 8px #CCC; box-shadow: 5px 5px 8px #CCC; }
+</style>
+
+</head>
+<body>
+
+
+<h1>Simulaattori.java</h1>
+
+<table class="src">
+
+
+
+<tr>
+<td class='na'>
+<a name='org.pitest.mutationtest.report.html.SourceFile@1f44ddab_1'/>
+1
+</td>
+<td class=''>
+<span class='pop'>
+<a href='#grouporg.pitest.mutationtest.report.html.SourceFile@1f44ddab_1'></a>
+<span>
+</span>
+</td>
+<td class=''><pre><span  class=''>package ville.harjoitukset.sijoituslaskuri.logiikka;</span></pre></td></tr>
+
+
+<tr>
+<td class='na'>
+<a name='org.pitest.mutationtest.report.html.SourceFile@1f44ddab_2'/>
+2
+</td>
+<td class=''>
+<span class='pop'>
+<a href='#grouporg.pitest.mutationtest.report.html.SourceFile@1f44ddab_2'></a>
+<span>
+</span>
+</td>
+<td class=''><pre><span  class=''></span></pre></td></tr>
+
+
+<tr>
+<td class='na'>
+<a name='org.pitest.mutationtest.report.html.SourceFile@1f44ddab_3'/>
+3
+</td>
+<td class=''>
+<span class='pop'>
+<a href='#grouporg.pitest.mutationtest.report.html.SourceFile@1f44ddab_3'></a>
+<span>
+</span>
+</td>
+<td class=''><pre><span  class=''>import ville.harjoitukset.sijoituslaskuri.instrumentit.*;</span></pre></td></tr>
+
+
+<tr>
+<td class='na'>
+<a name='org.pitest.mutationtest.report.html.SourceFile@1f44ddab_4'/>
+4
+</td>
+<td class=''>
+<span class='pop'>
+<a href='#grouporg.pitest.mutationtest.report.html.SourceFile@1f44ddab_4'></a>
+<span>
+</span>
+</td>
+<td class=''><pre><span  class=''></span></pre></td></tr>
+
+
+<tr>
+<td class='na'>
+<a name='org.pitest.mutationtest.report.html.SourceFile@1f44ddab_5'/>
+5
+</td>
+<td class=''>
+<span class='pop'>
+<a href='#grouporg.pitest.mutationtest.report.html.SourceFile@1f44ddab_5'></a>
+<span>
+</span>
+</td>
+<td class=''><pre><span  class=''>/**</span></pre></td></tr>
+
+
+<tr>
+<td class='na'>
+<a name='org.pitest.mutationtest.report.html.SourceFile@1f44ddab_6'/>
+6
+</td>
+<td class=''>
+<span class='pop'>
+<a href='#grouporg.pitest.mutationtest.report.html.SourceFile@1f44ddab_6'></a>
+<span>
+</span>
+</td>
+<td class=''><pre><span  class=''> * Luokan tarkoituksena on laskea portfolioon liitettyjen sijoituskohteiden ja</span></pre></td></tr>
+
+
+<tr>
+<td class='na'>
+<a name='org.pitest.mutationtest.report.html.SourceFile@1f44ddab_7'/>
+7
+</td>
+<td class=''>
+<span class='pop'>
+<a href='#grouporg.pitest.mutationtest.report.html.SourceFile@1f44ddab_7'></a>
+<span>
+</span>
+</td>
+<td class=''><pre><span  class=''> * sijoitussuunnitelman pohjalta erilaisia tunnuslukuja, kuten sijoitusten m&#228;&#228;r&#228;</span></pre></td></tr>
+
+
+<tr>
+<td class='na'>
+<a name='org.pitest.mutationtest.report.html.SourceFile@1f44ddab_8'/>
+8
+</td>
+<td class=''>
+<span class='pop'>
+<a href='#grouporg.pitest.mutationtest.report.html.SourceFile@1f44ddab_8'></a>
+<span>
+</span>
+</td>
+<td class=''><pre><span  class=''> * sijoitusajan lopuksi.</span></pre></td></tr>
+
+
+<tr>
+<td class='na'>
+<a name='org.pitest.mutationtest.report.html.SourceFile@1f44ddab_9'/>
+9
+</td>
+<td class=''>
+<span class='pop'>
+<a href='#grouporg.pitest.mutationtest.report.html.SourceFile@1f44ddab_9'></a>
+<span>
+</span>
+</td>
+<td class=''><pre><span  class=''> */</span></pre></td></tr>
+
+
+<tr>
+<td class='na'>
+<a name='org.pitest.mutationtest.report.html.SourceFile@1f44ddab_10'/>
+10
+</td>
+<td class=''>
+<span class='pop'>
+<a href='#grouporg.pitest.mutationtest.report.html.SourceFile@1f44ddab_10'></a>
+<span>
+</span>
+</td>
+<td class=''><pre><span  class=''></span></pre></td></tr>
+
+
+<tr>
+<td class='na'>
+<a name='org.pitest.mutationtest.report.html.SourceFile@1f44ddab_11'/>
+11
+</td>
+<td class=''>
+<span class='pop'>
+<a href='#grouporg.pitest.mutationtest.report.html.SourceFile@1f44ddab_11'></a>
+<span>
+</span>
+</td>
+<td class=''><pre><span  class=''>// Laskee t&#228;ll&#228; hetkell&#228; vain loppus&#228;&#228;st&#246;n.</span></pre></td></tr>
+
+
+<tr>
+<td class='na'>
+<a name='org.pitest.mutationtest.report.html.SourceFile@1f44ddab_12'/>
+12
+</td>
+<td class=''>
+<span class='pop'>
+<a href='#grouporg.pitest.mutationtest.report.html.SourceFile@1f44ddab_12'></a>
+<span>
+</span>
+</td>
+<td class=''><pre><span  class=''></span></pre></td></tr>
+
+
+<tr>
+<td class='na'>
+<a name='org.pitest.mutationtest.report.html.SourceFile@1f44ddab_13'/>
+13
+</td>
+<td class=''>
+<span class='pop'>
+<a href='#grouporg.pitest.mutationtest.report.html.SourceFile@1f44ddab_13'></a>
+<span>
+</span>
+</td>
+<td class=''><pre><span  class=''>public class Simulaattori {</span></pre></td></tr>
+
+
+<tr>
+<td class='na'>
+<a name='org.pitest.mutationtest.report.html.SourceFile@1f44ddab_14'/>
+14
+</td>
+<td class=''>
+<span class='pop'>
+<a href='#grouporg.pitest.mutationtest.report.html.SourceFile@1f44ddab_14'></a>
+<span>
+</span>
+</td>
+<td class=''><pre><span  class=''>    private Portfolio portfolio;</span></pre></td></tr>
+
+
+<tr>
+<td class='na'>
+<a name='org.pitest.mutationtest.report.html.SourceFile@1f44ddab_15'/>
+15
+</td>
+<td class=''>
+<span class='pop'>
+<a href='#grouporg.pitest.mutationtest.report.html.SourceFile@1f44ddab_15'></a>
+<span>
+</span>
+</td>
+<td class=''><pre><span  class=''>    private Rahasto rahasto;</span></pre></td></tr>
+
+
+<tr>
+<td class='na'>
+<a name='org.pitest.mutationtest.report.html.SourceFile@1f44ddab_16'/>
+16
+</td>
+<td class=''>
+<span class='pop'>
+<a href='#grouporg.pitest.mutationtest.report.html.SourceFile@1f44ddab_16'></a>
+<span>
+</span>
+</td>
+<td class=''><pre><span  class=''>    private int sijoitusaika;</span></pre></td></tr>
+
+
+<tr>
+<td class='na'>
+<a name='org.pitest.mutationtest.report.html.SourceFile@1f44ddab_17'/>
+17
+</td>
+<td class=''>
+<span class='pop'>
+<a href='#grouporg.pitest.mutationtest.report.html.SourceFile@1f44ddab_17'></a>
+<span>
+</span>
+</td>
+<td class=''><pre><span  class=''>    private int tiheys;</span></pre></td></tr>
+
+
+<tr>
+<td class='na'>
+<a name='org.pitest.mutationtest.report.html.SourceFile@1f44ddab_18'/>
+18
+</td>
+<td class=''>
+<span class='pop'>
+<a href='#grouporg.pitest.mutationtest.report.html.SourceFile@1f44ddab_18'></a>
+<span>
+</span>
+</td>
+<td class=''><pre><span  class=''>    private double sijoitus;</span></pre></td></tr>
+
+
+<tr>
+<td class='na'>
+<a name='org.pitest.mutationtest.report.html.SourceFile@1f44ddab_19'/>
+19
+</td>
+<td class=''>
+<span class='pop'>
+<a href='#grouporg.pitest.mutationtest.report.html.SourceFile@1f44ddab_19'></a>
+<span>
+</span>
+</td>
+<td class=''><pre><span  class=''>    private double kulutYhteensa;</span></pre></td></tr>
+
+
+<tr>
+<td class='na'>
+<a name='org.pitest.mutationtest.report.html.SourceFile@1f44ddab_20'/>
+20
+</td>
+<td class=''>
+<span class='pop'>
+<a href='#grouporg.pitest.mutationtest.report.html.SourceFile@1f44ddab_20'></a>
+<span>
+</span>
+</td>
+<td class=''><pre><span  class=''>    private double tuototYhteensa;</span></pre></td></tr>
+
+
+<tr>
+<td class='na'>
+<a name='org.pitest.mutationtest.report.html.SourceFile@1f44ddab_21'/>
+21
+</td>
+<td class=''>
+<span class='pop'>
+<a href='#grouporg.pitest.mutationtest.report.html.SourceFile@1f44ddab_21'></a>
+<span>
+</span>
+</td>
+<td class=''><pre><span  class=''>    private double tuottoprosentti;</span></pre></td></tr>
+
+
+<tr>
+<td class='na'>
+<a name='org.pitest.mutationtest.report.html.SourceFile@1f44ddab_22'/>
+22
+</td>
+<td class=''>
+<span class='pop'>
+<a href='#grouporg.pitest.mutationtest.report.html.SourceFile@1f44ddab_22'></a>
+<span>
+</span>
+</td>
+<td class=''><pre><span  class=''>    private double sijoitusYhteensaKaikki;</span></pre></td></tr>
+
+
+<tr>
+<td class='na'>
+<a name='org.pitest.mutationtest.report.html.SourceFile@1f44ddab_23'/>
+23
+</td>
+<td class=''>
+<span class='pop'>
+<a href='#grouporg.pitest.mutationtest.report.html.SourceFile@1f44ddab_23'></a>
+<span>
+</span>
+</td>
+<td class=''><pre><span  class=''></span></pre></td></tr>
+
+
+<tr>
+<td class='na'>
+<a name='org.pitest.mutationtest.report.html.SourceFile@1f44ddab_24'/>
+24
+</td>
+<td class=''>
+<span class='pop'>
+<a href='#grouporg.pitest.mutationtest.report.html.SourceFile@1f44ddab_24'></a>
+<span>
+</span>
+</td>
+<td class=''><pre><span  class=''>    /**</span></pre></td></tr>
+
+
+<tr>
+<td class='na'>
+<a name='org.pitest.mutationtest.report.html.SourceFile@1f44ddab_25'/>
+25
+</td>
+<td class=''>
+<span class='pop'>
+<a href='#grouporg.pitest.mutationtest.report.html.SourceFile@1f44ddab_25'></a>
+<span>
+</span>
+</td>
+<td class=''><pre><span  class=''>     * Konstruktorin avulla simulaattorille v&#228;litet&#228;&#228;n simuloinnissa k&#228;ytett&#228;v&#228;</span></pre></td></tr>
+
+
+<tr>
+<td class='na'>
+<a name='org.pitest.mutationtest.report.html.SourceFile@1f44ddab_26'/>
+26
+</td>
+<td class=''>
+<span class='pop'>
+<a href='#grouporg.pitest.mutationtest.report.html.SourceFile@1f44ddab_26'></a>
+<span>
+</span>
+</td>
+<td class=''><pre><span  class=''>     * portfolio ja sijoitussuunnitelma.</span></pre></td></tr>
+
+
+<tr>
+<td class='na'>
+<a name='org.pitest.mutationtest.report.html.SourceFile@1f44ddab_27'/>
+27
+</td>
+<td class=''>
+<span class='pop'>
+<a href='#grouporg.pitest.mutationtest.report.html.SourceFile@1f44ddab_27'></a>
+<span>
+</span>
+</td>
+<td class=''><pre><span  class=''>     * @param kohteet Sijoitusportfolio</span></pre></td></tr>
+
+
+<tr>
+<td class='na'>
+<a name='org.pitest.mutationtest.report.html.SourceFile@1f44ddab_28'/>
+28
+</td>
+<td class=''>
+<span class='pop'>
+<a href='#grouporg.pitest.mutationtest.report.html.SourceFile@1f44ddab_28'></a>
+<span>
+</span>
+</td>
+<td class=''><pre><span  class=''>     * @param suunnitelma Sijoitussuunnitelma</span></pre></td></tr>
+
+
+<tr>
+<td class='na'>
+<a name='org.pitest.mutationtest.report.html.SourceFile@1f44ddab_29'/>
+29
+</td>
+<td class=''>
+<span class='pop'>
+<a href='#grouporg.pitest.mutationtest.report.html.SourceFile@1f44ddab_29'></a>
+<span>
+</span>
+</td>
+<td class=''><pre><span  class=''>     */</span></pre></td></tr>
+
+
+<tr>
+<td class='covered'>
+<a name='org.pitest.mutationtest.report.html.SourceFile@1f44ddab_30'/>
+30
+</td>
+<td class=''>
+<span class='pop'>
+<a href='#grouporg.pitest.mutationtest.report.html.SourceFile@1f44ddab_30'></a>
+<span>
+</span>
+</td>
+<td class='covered'><pre><span  class=''>    public Simulaattori(Portfolio kohteet, Suunnitelma suunnitelma) {</span></pre></td></tr>
+
+
+<tr>
+<td class='covered'>
+<a name='org.pitest.mutationtest.report.html.SourceFile@1f44ddab_31'/>
+31
+</td>
+<td class=''>
+<span class='pop'>
+<a href='#grouporg.pitest.mutationtest.report.html.SourceFile@1f44ddab_31'></a>
+<span>
+</span>
+</td>
+<td class='covered'><pre><span  class=''>        this.portfolio = kohteet;</span></pre></td></tr>
+
+
+<tr>
+<td class='covered'>
+<a name='org.pitest.mutationtest.report.html.SourceFile@1f44ddab_32'/>
+32
+</td>
+<td class=''>
+<span class='pop'>
+<a href='#grouporg.pitest.mutationtest.report.html.SourceFile@1f44ddab_32'></a>
+<span>
+</span>
+</td>
+<td class='covered'><pre><span  class=''>        this.sijoitusaika = suunnitelma.getSijoitusaika();</span></pre></td></tr>
+
+
+<tr>
+<td class='covered'>
+<a name='org.pitest.mutationtest.report.html.SourceFile@1f44ddab_33'/>
+33
+</td>
+<td class=''>
+<span class='pop'>
+<a href='#grouporg.pitest.mutationtest.report.html.SourceFile@1f44ddab_33'></a>
+<span>
+</span>
+</td>
+<td class='covered'><pre><span  class=''>        this.tiheys = suunnitelma.getTiheys();</span></pre></td></tr>
+
+
+<tr>
+<td class='covered'>
+<a name='org.pitest.mutationtest.report.html.SourceFile@1f44ddab_34'/>
+34
+</td>
+<td class=''>
+<span class='pop'>
+<a href='#grouporg.pitest.mutationtest.report.html.SourceFile@1f44ddab_34'></a>
+<span>
+</span>
+</td>
+<td class='covered'><pre><span  class=''>        this.sijoitus = suunnitelma.getSijoitus();</span></pre></td></tr>
+
+
+<tr>
+<td class='covered'>
+<a name='org.pitest.mutationtest.report.html.SourceFile@1f44ddab_35'/>
+35
+</td>
+<td class=''>
+<span class='pop'>
+<a href='#grouporg.pitest.mutationtest.report.html.SourceFile@1f44ddab_35'></a>
+<span>
+</span>
+</td>
+<td class='covered'><pre><span  class=''>        this.kulutYhteensa = 0.00;</span></pre></td></tr>
+
+
+<tr>
+<td class='covered'>
+<a name='org.pitest.mutationtest.report.html.SourceFile@1f44ddab_36'/>
+36
+</td>
+<td class=''>
+<span class='pop'>
+<a href='#grouporg.pitest.mutationtest.report.html.SourceFile@1f44ddab_36'></a>
+<span>
+</span>
+</td>
+<td class='covered'><pre><span  class=''>        this.tuototYhteensa = 0.00;</span></pre></td></tr>
+
+
+<tr>
+<td class='covered'>
+<a name='org.pitest.mutationtest.report.html.SourceFile@1f44ddab_37'/>
+37
+</td>
+<td class=''>
+<span class='pop'>
+<a href='#grouporg.pitest.mutationtest.report.html.SourceFile@1f44ddab_37'></a>
+<span>
+</span>
+</td>
+<td class='covered'><pre><span  class=''>        this.tuottoprosentti = 0.00;</span></pre></td></tr>
+
+
+<tr>
+<td class='covered'>
+<a name='org.pitest.mutationtest.report.html.SourceFile@1f44ddab_38'/>
+38
+</td>
+<td class=''>
+<span class='pop'>
+<a href='#grouporg.pitest.mutationtest.report.html.SourceFile@1f44ddab_38'></a>
+<span>
+</span>
+</td>
+<td class='covered'><pre><span  class=''>        this.sijoitusYhteensaKaikki = 0.00;</span></pre></td></tr>
+
+
+<tr>
+<td class='na'>
+<a name='org.pitest.mutationtest.report.html.SourceFile@1f44ddab_39'/>
+39
+</td>
+<td class=''>
+<span class='pop'>
+<a href='#grouporg.pitest.mutationtest.report.html.SourceFile@1f44ddab_39'></a>
+<span>
+</span>
+</td>
+<td class=''><pre><span  class=''>        //System.out.println(&#34;Sijoitusaika: &#34; + this.sijoitusaika);</span></pre></td></tr>
+
+
+<tr>
+<td class='na'>
+<a name='org.pitest.mutationtest.report.html.SourceFile@1f44ddab_40'/>
+40
+</td>
+<td class=''>
+<span class='pop'>
+<a href='#grouporg.pitest.mutationtest.report.html.SourceFile@1f44ddab_40'></a>
+<span>
+</span>
+</td>
+<td class=''><pre><span  class=''>        //System.out.println(&#34;Tiheys: &#34; + this.tiheys);</span></pre></td></tr>
+
+
+<tr>
+<td class='na'>
+<a name='org.pitest.mutationtest.report.html.SourceFile@1f44ddab_41'/>
+41
+</td>
+<td class=''>
+<span class='pop'>
+<a href='#grouporg.pitest.mutationtest.report.html.SourceFile@1f44ddab_41'></a>
+<span>
+</span>
+</td>
+<td class=''><pre><span  class=''>        //System.out.println(&#34;Sijoitus: &#34; + this.sijoitus);</span></pre></td></tr>
+
+
+<tr>
+<td class='na'>
+<a name='org.pitest.mutationtest.report.html.SourceFile@1f44ddab_42'/>
+42
+</td>
+<td class=''>
+<span class='pop'>
+<a href='#grouporg.pitest.mutationtest.report.html.SourceFile@1f44ddab_42'></a>
+<span>
+</span>
+</td>
+<td class=''><pre><span  class=''>        </span></pre></td></tr>
+
+
+<tr>
+<td class='covered'>
+<a name='org.pitest.mutationtest.report.html.SourceFile@1f44ddab_43'/>
+43
+</td>
+<td class=''>
+<span class='pop'>
+<a href='#grouporg.pitest.mutationtest.report.html.SourceFile@1f44ddab_43'></a>
+<span>
+</span>
+</td>
+<td class='covered'><pre><span  class=''>    }</span></pre></td></tr>
+
+
+<tr>
+<td class='na'>
+<a name='org.pitest.mutationtest.report.html.SourceFile@1f44ddab_44'/>
+44
+</td>
+<td class=''>
+<span class='pop'>
+<a href='#grouporg.pitest.mutationtest.report.html.SourceFile@1f44ddab_44'></a>
+<span>
+</span>
+</td>
+<td class=''><pre><span  class=''>    </span></pre></td></tr>
+
+
+<tr>
+<td class='na'>
+<a name='org.pitest.mutationtest.report.html.SourceFile@1f44ddab_45'/>
+45
+</td>
+<td class=''>
+<span class='pop'>
+<a href='#grouporg.pitest.mutationtest.report.html.SourceFile@1f44ddab_45'></a>
+<span>
+</span>
+</td>
+<td class=''><pre><span  class=''>    public double getSijoitus() {</span></pre></td></tr>
+
+
+<tr>
+<td class='covered'>
+<a name='org.pitest.mutationtest.report.html.SourceFile@1f44ddab_46'/>
+46
+</td>
+<td class='killed'>
+<span class='pop'>
+<a href='#grouporg.pitest.mutationtest.report.html.SourceFile@1f44ddab_46'>1</a>
+<span>
+1. getSijoitus : replaced return of double value with -(x + 1) for ville/harjoitukset/sijoituslaskuri/logiikka/Simulaattori::getSijoitus &rarr; KILLED<br/>
+
+</span>
+</td>
+<td class='covered'><pre><span  class='killed'>        return this.sijoitus;</span></pre></td></tr>
+
+
+<tr>
+<td class='na'>
+<a name='org.pitest.mutationtest.report.html.SourceFile@1f44ddab_47'/>
+47
+</td>
+<td class=''>
+<span class='pop'>
+<a href='#grouporg.pitest.mutationtest.report.html.SourceFile@1f44ddab_47'></a>
+<span>
+</span>
+</td>
+<td class=''><pre><span  class=''>    }</span></pre></td></tr>
+
+
+<tr>
+<td class='na'>
+<a name='org.pitest.mutationtest.report.html.SourceFile@1f44ddab_48'/>
+48
+</td>
+<td class=''>
+<span class='pop'>
+<a href='#grouporg.pitest.mutationtest.report.html.SourceFile@1f44ddab_48'></a>
+<span>
+</span>
+</td>
+<td class=''><pre><span  class=''>    </span></pre></td></tr>
+
+
+<tr>
+<td class='na'>
+<a name='org.pitest.mutationtest.report.html.SourceFile@1f44ddab_49'/>
+49
+</td>
+<td class=''>
+<span class='pop'>
+<a href='#grouporg.pitest.mutationtest.report.html.SourceFile@1f44ddab_49'></a>
+<span>
+</span>
+</td>
+<td class=''><pre><span  class=''>    public double getTuotto() {</span></pre></td></tr>
+
+
+<tr>
+<td class='covered'>
+<a name='org.pitest.mutationtest.report.html.SourceFile@1f44ddab_50'/>
+50
+</td>
+<td class='killed'>
+<span class='pop'>
+<a href='#grouporg.pitest.mutationtest.report.html.SourceFile@1f44ddab_50'>1</a>
+<span>
+1. getTuotto : replaced return of double value with -(x + 1) for ville/harjoitukset/sijoituslaskuri/logiikka/Simulaattori::getTuotto &rarr; KILLED<br/>
+
+</span>
+</td>
+<td class='covered'><pre><span  class='killed'>        return this.tuototYhteensa;</span></pre></td></tr>
+
+
+<tr>
+<td class='na'>
+<a name='org.pitest.mutationtest.report.html.SourceFile@1f44ddab_51'/>
+51
+</td>
+<td class=''>
+<span class='pop'>
+<a href='#grouporg.pitest.mutationtest.report.html.SourceFile@1f44ddab_51'></a>
+<span>
+</span>
+</td>
+<td class=''><pre><span  class=''>    }</span></pre></td></tr>
+
+
+<tr>
+<td class='na'>
+<a name='org.pitest.mutationtest.report.html.SourceFile@1f44ddab_52'/>
+52
+</td>
+<td class=''>
+<span class='pop'>
+<a href='#grouporg.pitest.mutationtest.report.html.SourceFile@1f44ddab_52'></a>
+<span>
+</span>
+</td>
+<td class=''><pre><span  class=''>    </span></pre></td></tr>
+
+
+<tr>
+<td class='na'>
+<a name='org.pitest.mutationtest.report.html.SourceFile@1f44ddab_53'/>
+53
+</td>
+<td class=''>
+<span class='pop'>
+<a href='#grouporg.pitest.mutationtest.report.html.SourceFile@1f44ddab_53'></a>
+<span>
+</span>
+</td>
+<td class=''><pre><span  class=''>    public double getKulut() {</span></pre></td></tr>
+
+
+<tr>
+<td class='covered'>
+<a name='org.pitest.mutationtest.report.html.SourceFile@1f44ddab_54'/>
+54
+</td>
+<td class='killed'>
+<span class='pop'>
+<a href='#grouporg.pitest.mutationtest.report.html.SourceFile@1f44ddab_54'>1</a>
+<span>
+1. getKulut : replaced return of double value with -(x + 1) for ville/harjoitukset/sijoituslaskuri/logiikka/Simulaattori::getKulut &rarr; KILLED<br/>
+
+</span>
+</td>
+<td class='covered'><pre><span  class='killed'>        return this.kulutYhteensa;</span></pre></td></tr>
+
+
+<tr>
+<td class='na'>
+<a name='org.pitest.mutationtest.report.html.SourceFile@1f44ddab_55'/>
+55
+</td>
+<td class=''>
+<span class='pop'>
+<a href='#grouporg.pitest.mutationtest.report.html.SourceFile@1f44ddab_55'></a>
+<span>
+</span>
+</td>
+<td class=''><pre><span  class=''>    }</span></pre></td></tr>
+
+
+<tr>
+<td class='na'>
+<a name='org.pitest.mutationtest.report.html.SourceFile@1f44ddab_56'/>
+56
+</td>
+<td class=''>
+<span class='pop'>
+<a href='#grouporg.pitest.mutationtest.report.html.SourceFile@1f44ddab_56'></a>
+<span>
+</span>
+</td>
+<td class=''><pre><span  class=''>    </span></pre></td></tr>
+
+
+<tr>
+<td class='na'>
+<a name='org.pitest.mutationtest.report.html.SourceFile@1f44ddab_57'/>
+57
+</td>
+<td class=''>
+<span class='pop'>
+<a href='#grouporg.pitest.mutationtest.report.html.SourceFile@1f44ddab_57'></a>
+<span>
+</span>
+</td>
+<td class=''><pre><span  class=''>    public double getSijoitusLopussa() {</span></pre></td></tr>
+
+
+<tr>
+<td class='covered'>
+<a name='org.pitest.mutationtest.report.html.SourceFile@1f44ddab_58'/>
+58
+</td>
+<td class='killed'>
+<span class='pop'>
+<a href='#grouporg.pitest.mutationtest.report.html.SourceFile@1f44ddab_58'>1</a>
+<span>
+1. getSijoitusLopussa : replaced return of double value with -(x + 1) for ville/harjoitukset/sijoituslaskuri/logiikka/Simulaattori::getSijoitusLopussa &rarr; KILLED<br/>
+
+</span>
+</td>
+<td class='covered'><pre><span  class='killed'>        return this.sijoitusYhteensaKaikki;</span></pre></td></tr>
+
+
+<tr>
+<td class='na'>
+<a name='org.pitest.mutationtest.report.html.SourceFile@1f44ddab_59'/>
+59
+</td>
+<td class=''>
+<span class='pop'>
+<a href='#grouporg.pitest.mutationtest.report.html.SourceFile@1f44ddab_59'></a>
+<span>
+</span>
+</td>
+<td class=''><pre><span  class=''>    }</span></pre></td></tr>
+
+
+<tr>
+<td class='na'>
+<a name='org.pitest.mutationtest.report.html.SourceFile@1f44ddab_60'/>
+60
+</td>
+<td class=''>
+<span class='pop'>
+<a href='#grouporg.pitest.mutationtest.report.html.SourceFile@1f44ddab_60'></a>
+<span>
+</span>
+</td>
+<td class=''><pre><span  class=''>    </span></pre></td></tr>
+
+
+<tr>
+<td class='na'>
+<a name='org.pitest.mutationtest.report.html.SourceFile@1f44ddab_61'/>
+61
+</td>
+<td class=''>
+<span class='pop'>
+<a href='#grouporg.pitest.mutationtest.report.html.SourceFile@1f44ddab_61'></a>
+<span>
+</span>
+</td>
+<td class=''><pre><span  class=''>    /**</span></pre></td></tr>
+
+
+<tr>
+<td class='na'>
+<a name='org.pitest.mutationtest.report.html.SourceFile@1f44ddab_62'/>
+62
+</td>
+<td class=''>
+<span class='pop'>
+<a href='#grouporg.pitest.mutationtest.report.html.SourceFile@1f44ddab_62'></a>
+<span>
+</span>
+</td>
+<td class=''><pre><span  class=''>     * Laskee portfolion arvon sijoitusajan lopussa. Toteutus kesken.</span></pre></td></tr>
+
+
+<tr>
+<td class='na'>
+<a name='org.pitest.mutationtest.report.html.SourceFile@1f44ddab_63'/>
+63
+</td>
+<td class=''>
+<span class='pop'>
+<a href='#grouporg.pitest.mutationtest.report.html.SourceFile@1f44ddab_63'></a>
+<span>
+</span>
+</td>
+<td class=''><pre><span  class=''>     * @return sijoitusten arvo lopussa</span></pre></td></tr>
+
+
+<tr>
+<td class='na'>
+<a name='org.pitest.mutationtest.report.html.SourceFile@1f44ddab_64'/>
+64
+</td>
+<td class=''>
+<span class='pop'>
+<a href='#grouporg.pitest.mutationtest.report.html.SourceFile@1f44ddab_64'></a>
+<span>
+</span>
+</td>
+<td class=''><pre><span  class=''>     */</span></pre></td></tr>
+
+
+<tr>
+<td class='na'>
+<a name='org.pitest.mutationtest.report.html.SourceFile@1f44ddab_65'/>
+65
+</td>
+<td class=''>
+<span class='pop'>
+<a href='#grouporg.pitest.mutationtest.report.html.SourceFile@1f44ddab_65'></a>
+<span>
+</span>
+</td>
+<td class=''><pre><span  class=''>    public double simuloi() {</span></pre></td></tr>
+
+
+<tr>
+<td class='na'>
+<a name='org.pitest.mutationtest.report.html.SourceFile@1f44ddab_66'/>
+66
+</td>
+<td class=''>
+<span class='pop'>
+<a href='#grouporg.pitest.mutationtest.report.html.SourceFile@1f44ddab_66'></a>
+<span>
+</span>
+</td>
+<td class=''><pre><span  class=''>        </span></pre></td></tr>
+
+
+<tr>
+<td class='covered'>
+<a name='org.pitest.mutationtest.report.html.SourceFile@1f44ddab_67'/>
+67
+</td>
+<td class=''>
+<span class='pop'>
+<a href='#grouporg.pitest.mutationtest.report.html.SourceFile@1f44ddab_67'></a>
+<span>
+</span>
+</td>
+<td class='covered'><pre><span  class=''>        double sijoitusYhteensa = 0.00;</span></pre></td></tr>
+
+
+<tr>
+<td class='na'>
+<a name='org.pitest.mutationtest.report.html.SourceFile@1f44ddab_68'/>
+68
+</td>
+<td class=''>
+<span class='pop'>
+<a href='#grouporg.pitest.mutationtest.report.html.SourceFile@1f44ddab_68'></a>
+<span>
+</span>
+</td>
+<td class=''><pre><span  class=''>        </span></pre></td></tr>
+
+
+<tr>
+<td class='covered'>
+<a name='org.pitest.mutationtest.report.html.SourceFile@1f44ddab_69'/>
+69
+</td>
+<td class='killed'>
+<span class='pop'>
+<a href='#grouporg.pitest.mutationtest.report.html.SourceFile@1f44ddab_69'>3</a>
+<span>
+1. simuloi : changed conditional boundary &rarr; KILLED<br/>
+2. simuloi : Changed increment from 1 to -1 &rarr; KILLED<br/>
+3. simuloi : negated conditional &rarr; KILLED<br/>
+
+</span>
+</td>
+<td class='covered'><pre><span  class='killed'>        for (int i = 0; i &#60; portfolio.getPortfolio().size(); i++) {</span></pre></td></tr>
+
+
+<tr>
+<td class='covered'>
+<a name='org.pitest.mutationtest.report.html.SourceFile@1f44ddab_70'/>
+70
+</td>
+<td class='killed'>
+<span class='pop'>
+<a href='#grouporg.pitest.mutationtest.report.html.SourceFile@1f44ddab_70'>1</a>
+<span>
+1. simuloi : negated conditional &rarr; KILLED<br/>
+
+</span>
+</td>
+<td class='covered'><pre><span  class='killed'>            if (portfolio.getPortfolio().get(i).getTunnus().equals(&#34;Rahasto&#34;)) {</span></pre></td></tr>
+
+
+<tr>
+<td class='covered'>
+<a name='org.pitest.mutationtest.report.html.SourceFile@1f44ddab_71'/>
+71
+</td>
+<td class=''>
+<span class='pop'>
+<a href='#grouporg.pitest.mutationtest.report.html.SourceFile@1f44ddab_71'></a>
+<span>
+</span>
+</td>
+<td class='covered'><pre><span  class=''>                rahasto = portfolio.getPortfolio().get(i);</span></pre></td></tr>
+
+
+<tr>
+<td class='covered'>
+<a name='org.pitest.mutationtest.report.html.SourceFile@1f44ddab_72'/>
+72
+</td>
+<td class=''>
+<span class='pop'>
+<a href='#grouporg.pitest.mutationtest.report.html.SourceFile@1f44ddab_72'></a>
+<span>
+</span>
+</td>
+<td class='covered'><pre><span  class=''>                int rahastotyyppi = rahasto.getParametrit().getRahastotyyppi();</span></pre></td></tr>
+
+
+<tr>
+<td class='na'>
+<a name='org.pitest.mutationtest.report.html.SourceFile@1f44ddab_73'/>
+73
+</td>
+<td class=''>
+<span class='pop'>
+<a href='#grouporg.pitest.mutationtest.report.html.SourceFile@1f44ddab_73'></a>
+<span>
+</span>
+</td>
+<td class=''><pre><span  class=''>                //System.out.println(&#34;Rahastotyyppi: &#34; + rahastotyyppi);</span></pre></td></tr>
+
+
+<tr>
+<td class='na'>
+<a name='org.pitest.mutationtest.report.html.SourceFile@1f44ddab_74'/>
+74
+</td>
+<td class=''>
+<span class='pop'>
+<a href='#grouporg.pitest.mutationtest.report.html.SourceFile@1f44ddab_74'></a>
+<span>
+</span>
+</td>
+<td class=''><pre><span  class=''>                </span></pre></td></tr>
+
+
+<tr>
+<td class='covered'>
+<a name='org.pitest.mutationtest.report.html.SourceFile@1f44ddab_75'/>
+75
+</td>
+<td class=''>
+<span class='pop'>
+<a href='#grouporg.pitest.mutationtest.report.html.SourceFile@1f44ddab_75'></a>
+<span>
+</span>
+</td>
+<td class='covered'><pre><span  class=''>                double osuus = rahasto.getParametrit().getOsuus();</span></pre></td></tr>
+
+
+<tr>
+<td class='na'>
+<a name='org.pitest.mutationtest.report.html.SourceFile@1f44ddab_76'/>
+76
+</td>
+<td class=''>
+<span class='pop'>
+<a href='#grouporg.pitest.mutationtest.report.html.SourceFile@1f44ddab_76'></a>
+<span>
+</span>
+</td>
+<td class=''><pre><span  class=''>                //System.out.println(&#34;Osuus: &#34; + osuus);</span></pre></td></tr>
+
+
+<tr>
+<td class='na'>
+<a name='org.pitest.mutationtest.report.html.SourceFile@1f44ddab_77'/>
+77
+</td>
+<td class=''>
+<span class='pop'>
+<a href='#grouporg.pitest.mutationtest.report.html.SourceFile@1f44ddab_77'></a>
+<span>
+</span>
+</td>
+<td class=''><pre><span  class=''>                </span></pre></td></tr>
+
+
+<tr>
+<td class='covered'>
+<a name='org.pitest.mutationtest.report.html.SourceFile@1f44ddab_78'/>
+78
+</td>
+<td class=''>
+<span class='pop'>
+<a href='#grouporg.pitest.mutationtest.report.html.SourceFile@1f44ddab_78'></a>
+<span>
+</span>
+</td>
+<td class='covered'><pre><span  class=''>                double tuotto = rahasto.getParametrit().getTuotto();</span></pre></td></tr>
+
+
+<tr>
+<td class='na'>
+<a name='org.pitest.mutationtest.report.html.SourceFile@1f44ddab_79'/>
+79
+</td>
+<td class=''>
+<span class='pop'>
+<a href='#grouporg.pitest.mutationtest.report.html.SourceFile@1f44ddab_79'></a>
+<span>
+</span>
+</td>
+<td class=''><pre><span  class=''>                //System.out.println(&#34;Tuotto: &#34; + tuotto);</span></pre></td></tr>
+
+
+<tr>
+<td class='na'>
+<a name='org.pitest.mutationtest.report.html.SourceFile@1f44ddab_80'/>
+80
+</td>
+<td class=''>
+<span class='pop'>
+<a href='#grouporg.pitest.mutationtest.report.html.SourceFile@1f44ddab_80'></a>
+<span>
+</span>
+</td>
+<td class=''><pre><span  class=''>                </span></pre></td></tr>
+
+
+<tr>
+<td class='covered'>
+<a name='org.pitest.mutationtest.report.html.SourceFile@1f44ddab_81'/>
+81
+</td>
+<td class=''>
+<span class='pop'>
+<a href='#grouporg.pitest.mutationtest.report.html.SourceFile@1f44ddab_81'></a>
+<span>
+</span>
+</td>
+<td class='covered'><pre><span  class=''>                double merkintapalkkio = rahasto.getParametrit().getMerkintapalkkio();</span></pre></td></tr>
+
+
+<tr>
+<td class='na'>
+<a name='org.pitest.mutationtest.report.html.SourceFile@1f44ddab_82'/>
+82
+</td>
+<td class=''>
+<span class='pop'>
+<a href='#grouporg.pitest.mutationtest.report.html.SourceFile@1f44ddab_82'></a>
+<span>
+</span>
+</td>
+<td class=''><pre><span  class=''>                //System.out.println(&#34;Merkintapalkkio: &#34; + merkintapalkkio);</span></pre></td></tr>
+
+
+<tr>
+<td class='na'>
+<a name='org.pitest.mutationtest.report.html.SourceFile@1f44ddab_83'/>
+83
+</td>
+<td class=''>
+<span class='pop'>
+<a href='#grouporg.pitest.mutationtest.report.html.SourceFile@1f44ddab_83'></a>
+<span>
+</span>
+</td>
+<td class=''><pre><span  class=''>                </span></pre></td></tr>
+
+
+<tr>
+<td class='covered'>
+<a name='org.pitest.mutationtest.report.html.SourceFile@1f44ddab_84'/>
+84
+</td>
+<td class=''>
+<span class='pop'>
+<a href='#grouporg.pitest.mutationtest.report.html.SourceFile@1f44ddab_84'></a>
+<span>
+</span>
+</td>
+<td class='covered'><pre><span  class=''>                double lunastuspalkkio = rahasto.getParametrit().getLunastuspalkkio();</span></pre></td></tr>
+
+
+<tr>
+<td class='na'>
+<a name='org.pitest.mutationtest.report.html.SourceFile@1f44ddab_85'/>
+85
+</td>
+<td class=''>
+<span class='pop'>
+<a href='#grouporg.pitest.mutationtest.report.html.SourceFile@1f44ddab_85'></a>
+<span>
+</span>
+</td>
+<td class=''><pre><span  class=''>                //System.out.println(&#34;Lunastuspalkkio: &#34; + lunastuspalkkio);</span></pre></td></tr>
+
+
+<tr>
+<td class='na'>
+<a name='org.pitest.mutationtest.report.html.SourceFile@1f44ddab_86'/>
+86
+</td>
+<td class=''>
+<span class='pop'>
+<a href='#grouporg.pitest.mutationtest.report.html.SourceFile@1f44ddab_86'></a>
+<span>
+</span>
+</td>
+<td class=''><pre><span  class=''>                </span></pre></td></tr>
+
+
+<tr>
+<td class='covered'>
+<a name='org.pitest.mutationtest.report.html.SourceFile@1f44ddab_87'/>
+87
+</td>
+<td class=''>
+<span class='pop'>
+<a href='#grouporg.pitest.mutationtest.report.html.SourceFile@1f44ddab_87'></a>
+<span>
+</span>
+</td>
+<td class='covered'><pre><span  class=''>                double hallinnointipalkkio = rahasto.getParametrit().getHallinnointipalkkio();</span></pre></td></tr>
+
+
+<tr>
+<td class='na'>
+<a name='org.pitest.mutationtest.report.html.SourceFile@1f44ddab_88'/>
+88
+</td>
+<td class=''>
+<span class='pop'>
+<a href='#grouporg.pitest.mutationtest.report.html.SourceFile@1f44ddab_88'></a>
+<span>
+</span>
+</td>
+<td class=''><pre><span  class=''>                //System.out.println(&#34;Hallinnointipalkkio: &#34; + hallinnointipalkkio);</span></pre></td></tr>
+
+
+<tr>
+<td class='na'>
+<a name='org.pitest.mutationtest.report.html.SourceFile@1f44ddab_89'/>
+89
+</td>
+<td class=''>
+<span class='pop'>
+<a href='#grouporg.pitest.mutationtest.report.html.SourceFile@1f44ddab_89'></a>
+<span>
+</span>
+</td>
+<td class=''><pre><span  class=''>                </span></pre></td></tr>
+
+
+<tr>
+<td class='covered'>
+<a name='org.pitest.mutationtest.report.html.SourceFile@1f44ddab_90'/>
+90
+</td>
+<td class='killed'>
+<span class='pop'>
+<a href='#grouporg.pitest.mutationtest.report.html.SourceFile@1f44ddab_90'>4</a>
+<span>
+1. simuloi : Replaced double division with multiplication &rarr; KILLED<br/>
+2. simuloi : Replaced double multiplication with division &rarr; KILLED<br/>
+3. simuloi : Replaced double division with multiplication &rarr; KILLED<br/>
+4. simuloi : Replaced double multiplication with division &rarr; KILLED<br/>
+
+</span>
+</td>
+<td class='covered'><pre><span  class='killed'>                double merkintapalkkioEuroa = ((osuus / 100) * this.sijoitus) * (merkintapalkkio / 100);</span></pre></td></tr>
+
+
+<tr>
+<td class='covered'>
+<a name='org.pitest.mutationtest.report.html.SourceFile@1f44ddab_91'/>
+91
+</td>
+<td class='killed'>
+<span class='pop'>
+<a href='#grouporg.pitest.mutationtest.report.html.SourceFile@1f44ddab_91'>1</a>
+<span>
+1. simuloi : Replaced double addition with subtraction &rarr; KILLED<br/>
+
+</span>
+</td>
+<td class='covered'><pre><span  class='killed'>                this.kulutYhteensa = this.kulutYhteensa + merkintapalkkioEuroa;</span></pre></td></tr>
+
+
+<tr>
+<td class='na'>
+<a name='org.pitest.mutationtest.report.html.SourceFile@1f44ddab_92'/>
+92
+</td>
+<td class=''>
+<span class='pop'>
+<a href='#grouporg.pitest.mutationtest.report.html.SourceFile@1f44ddab_92'></a>
+<span>
+</span>
+</td>
+<td class=''><pre><span  class=''>                </span></pre></td></tr>
+
+
+<tr>
+<td class='covered'>
+<a name='org.pitest.mutationtest.report.html.SourceFile@1f44ddab_93'/>
+93
+</td>
+<td class='killed'>
+<span class='pop'>
+<a href='#grouporg.pitest.mutationtest.report.html.SourceFile@1f44ddab_93'>3</a>
+<span>
+1. simuloi : Replaced double division with multiplication &rarr; KILLED<br/>
+2. simuloi : Replaced double multiplication with division &rarr; KILLED<br/>
+3. simuloi : Replaced double subtraction with addition &rarr; KILLED<br/>
+
+</span>
+</td>
+<td class='covered'><pre><span  class='killed'>                double sijoitusKesken = ((osuus / 100) * this.sijoitus) - merkintapalkkioEuroa;</span></pre></td></tr>
+
+
+<tr>
+<td class='na'>
+<a name='org.pitest.mutationtest.report.html.SourceFile@1f44ddab_94'/>
+94
+</td>
+<td class=''>
+<span class='pop'>
+<a href='#grouporg.pitest.mutationtest.report.html.SourceFile@1f44ddab_94'></a>
+<span>
+</span>
+</td>
+<td class=''><pre><span  class=''>                //System.out.println(&#34;Sijoitus alussa: &#34; + sijoitusKesken);</span></pre></td></tr>
+
+
+<tr>
+<td class='na'>
+<a name='org.pitest.mutationtest.report.html.SourceFile@1f44ddab_95'/>
+95
+</td>
+<td class=''>
+<span class='pop'>
+<a href='#grouporg.pitest.mutationtest.report.html.SourceFile@1f44ddab_95'></a>
+<span>
+</span>
+</td>
+<td class=''><pre><span  class=''>               </span></pre></td></tr>
+
+
+<tr>
+<td class='covered'>
+<a name='org.pitest.mutationtest.report.html.SourceFile@1f44ddab_96'/>
+96
+</td>
+<td class='uncertain'>
+<span class='pop'>
+<a href='#grouporg.pitest.mutationtest.report.html.SourceFile@1f44ddab_96'>3</a>
+<span>
+1. simuloi : Changed increment from 1 to -1 &rarr; TIMED_OUT<br/>
+2. simuloi : changed conditional boundary &rarr; KILLED<br/>
+3. simuloi : negated conditional &rarr; KILLED<br/>
+
+</span>
+</td>
+<td class='covered'><pre><span  class='uncertain'>                for (int x = 0; x &#60; this.sijoitusaika; x++) {</span></pre></td></tr>
+
+
+<tr>
+<td class='covered'>
+<a name='org.pitest.mutationtest.report.html.SourceFile@1f44ddab_97'/>
+97
+</td>
+<td class='killed'>
+<span class='pop'>
+<a href='#grouporg.pitest.mutationtest.report.html.SourceFile@1f44ddab_97'>2</a>
+<span>
+1. simuloi : Replaced double division with multiplication &rarr; KILLED<br/>
+2. simuloi : Replaced double multiplication with division &rarr; KILLED<br/>
+
+</span>
+</td>
+<td class='covered'><pre><span  class='killed'>                    double hallinnointipalkkioEuroa = sijoitusKesken * (hallinnointipalkkio / 100);</span></pre></td></tr>
+
+
+<tr>
+<td class='covered'>
+<a name='org.pitest.mutationtest.report.html.SourceFile@1f44ddab_98'/>
+98
+</td>
+<td class='killed'>
+<span class='pop'>
+<a href='#grouporg.pitest.mutationtest.report.html.SourceFile@1f44ddab_98'>1</a>
+<span>
+1. simuloi : Replaced double addition with subtraction &rarr; KILLED<br/>
+
+</span>
+</td>
+<td class='covered'><pre><span  class='killed'>                    this.kulutYhteensa = this.kulutYhteensa + hallinnointipalkkioEuroa;</span></pre></td></tr>
+
+
+<tr>
+<td class='na'>
+<a name='org.pitest.mutationtest.report.html.SourceFile@1f44ddab_99'/>
+99
+</td>
+<td class=''>
+<span class='pop'>
+<a href='#grouporg.pitest.mutationtest.report.html.SourceFile@1f44ddab_99'></a>
+<span>
+</span>
+</td>
+<td class=''><pre><span  class=''>                    </span></pre></td></tr>
+
+
+<tr>
+<td class='covered'>
+<a name='org.pitest.mutationtest.report.html.SourceFile@1f44ddab_100'/>
+100
+</td>
+<td class='killed'>
+<span class='pop'>
+<a href='#grouporg.pitest.mutationtest.report.html.SourceFile@1f44ddab_100'>2</a>
+<span>
+1. simuloi : Replaced double division with multiplication &rarr; KILLED<br/>
+2. simuloi : Replaced double multiplication with division &rarr; KILLED<br/>
+
+</span>
+</td>
+<td class='covered'><pre><span  class='killed'>                    double tuottoEuroa = sijoitusKesken * (tuotto / 100);</span></pre></td></tr>
+
+
+<tr>
+<td class='covered'>
+<a name='org.pitest.mutationtest.report.html.SourceFile@1f44ddab_101'/>
+101
+</td>
+<td class='killed'>
+<span class='pop'>
+<a href='#grouporg.pitest.mutationtest.report.html.SourceFile@1f44ddab_101'>1</a>
+<span>
+1. simuloi : Replaced double addition with subtraction &rarr; KILLED<br/>
+
+</span>
+</td>
+<td class='covered'><pre><span  class='killed'>                    this.tuototYhteensa = this.tuototYhteensa + tuottoEuroa;</span></pre></td></tr>
+
+
+<tr>
+<td class='na'>
+<a name='org.pitest.mutationtest.report.html.SourceFile@1f44ddab_102'/>
+102
+</td>
+<td class=''>
+<span class='pop'>
+<a href='#grouporg.pitest.mutationtest.report.html.SourceFile@1f44ddab_102'></a>
+<span>
+</span>
+</td>
+<td class=''><pre><span  class=''>                    </span></pre></td></tr>
+
+
+<tr>
+<td class='covered'>
+<a name='org.pitest.mutationtest.report.html.SourceFile@1f44ddab_103'/>
+103
+</td>
+<td class='killed'>
+<span class='pop'>
+<a href='#grouporg.pitest.mutationtest.report.html.SourceFile@1f44ddab_103'>2</a>
+<span>
+1. simuloi : Replaced double addition with subtraction &rarr; KILLED<br/>
+2. simuloi : Replaced double subtraction with addition &rarr; KILLED<br/>
+
+</span>
+</td>
+<td class='covered'><pre><span  class='killed'>                    sijoitusKesken = sijoitusKesken + tuottoEuroa - hallinnointipalkkioEuroa;</span></pre></td></tr>
+
+
+<tr>
+<td class='na'>
+<a name='org.pitest.mutationtest.report.html.SourceFile@1f44ddab_104'/>
+104
+</td>
+<td class=''>
+<span class='pop'>
+<a href='#grouporg.pitest.mutationtest.report.html.SourceFile@1f44ddab_104'></a>
+<span>
+</span>
+</td>
+<td class=''><pre><span  class=''>                    //System.out.println(&#34;Sijoitus vuoden &#34; + x + &#34; lopussa: &#34; + sijoitusKesken);</span></pre></td></tr>
+
+
+<tr>
+<td class='na'>
+<a name='org.pitest.mutationtest.report.html.SourceFile@1f44ddab_105'/>
+105
+</td>
+<td class=''>
+<span class='pop'>
+<a href='#grouporg.pitest.mutationtest.report.html.SourceFile@1f44ddab_105'></a>
+<span>
+</span>
+</td>
+<td class=''><pre><span  class=''>                }</span></pre></td></tr>
+
+
+<tr>
+<td class='na'>
+<a name='org.pitest.mutationtest.report.html.SourceFile@1f44ddab_106'/>
+106
+</td>
+<td class=''>
+<span class='pop'>
+<a href='#grouporg.pitest.mutationtest.report.html.SourceFile@1f44ddab_106'></a>
+<span>
+</span>
+</td>
+<td class=''><pre><span  class=''>                 </span></pre></td></tr>
+
+
+<tr>
+<td class='covered'>
+<a name='org.pitest.mutationtest.report.html.SourceFile@1f44ddab_107'/>
+107
+</td>
+<td class='killed'>
+<span class='pop'>
+<a href='#grouporg.pitest.mutationtest.report.html.SourceFile@1f44ddab_107'>2</a>
+<span>
+1. simuloi : Replaced double division with multiplication &rarr; KILLED<br/>
+2. simuloi : Replaced double multiplication with division &rarr; KILLED<br/>
+
+</span>
+</td>
+<td class='covered'><pre><span  class='killed'>                double lunastuspalkkioEuroa = sijoitusKesken * (lunastuspalkkio / 100);</span></pre></td></tr>
+
+
+<tr>
+<td class='covered'>
+<a name='org.pitest.mutationtest.report.html.SourceFile@1f44ddab_108'/>
+108
+</td>
+<td class='killed'>
+<span class='pop'>
+<a href='#grouporg.pitest.mutationtest.report.html.SourceFile@1f44ddab_108'>1</a>
+<span>
+1. simuloi : Replaced double addition with subtraction &rarr; KILLED<br/>
+
+</span>
+</td>
+<td class='covered'><pre><span  class='killed'>                this.kulutYhteensa = this.kulutYhteensa + lunastuspalkkioEuroa;</span></pre></td></tr>
+
+
+<tr>
+<td class='na'>
+<a name='org.pitest.mutationtest.report.html.SourceFile@1f44ddab_109'/>
+109
+</td>
+<td class=''>
+<span class='pop'>
+<a href='#grouporg.pitest.mutationtest.report.html.SourceFile@1f44ddab_109'></a>
+<span>
+</span>
+</td>
+<td class=''><pre><span  class=''>                </span></pre></td></tr>
+
+
+<tr>
+<td class='covered'>
+<a name='org.pitest.mutationtest.report.html.SourceFile@1f44ddab_110'/>
+110
+</td>
+<td class='killed'>
+<span class='pop'>
+<a href='#grouporg.pitest.mutationtest.report.html.SourceFile@1f44ddab_110'>1</a>
+<span>
+1. simuloi : Replaced double subtraction with addition &rarr; KILLED<br/>
+
+</span>
+</td>
+<td class='covered'><pre><span  class='killed'>                double sijoitusLopussa = sijoitusKesken - lunastuspalkkioEuroa;</span></pre></td></tr>
+
+
+<tr>
+<td class='na'>
+<a name='org.pitest.mutationtest.report.html.SourceFile@1f44ddab_111'/>
+111
+</td>
+<td class=''>
+<span class='pop'>
+<a href='#grouporg.pitest.mutationtest.report.html.SourceFile@1f44ddab_111'></a>
+<span>
+</span>
+</td>
+<td class=''><pre><span  class=''>                //System.out.println(&#34;Sijoitus lopussa: &#34; + sijoitusLopussa);</span></pre></td></tr>
+
+
+<tr>
+<td class='na'>
+<a name='org.pitest.mutationtest.report.html.SourceFile@1f44ddab_112'/>
+112
+</td>
+<td class=''>
+<span class='pop'>
+<a href='#grouporg.pitest.mutationtest.report.html.SourceFile@1f44ddab_112'></a>
+<span>
+</span>
+</td>
+<td class=''><pre><span  class=''>                </span></pre></td></tr>
+
+
+<tr>
+<td class='covered'>
+<a name='org.pitest.mutationtest.report.html.SourceFile@1f44ddab_113'/>
+113
+</td>
+<td class='killed'>
+<span class='pop'>
+<a href='#grouporg.pitest.mutationtest.report.html.SourceFile@1f44ddab_113'>1</a>
+<span>
+1. simuloi : Replaced double addition with subtraction &rarr; KILLED<br/>
+
+</span>
+</td>
+<td class='covered'><pre><span  class='killed'>                sijoitusYhteensa = sijoitusYhteensa + sijoitusLopussa;</span></pre></td></tr>
+
+
+<tr>
+<td class='covered'>
+<a name='org.pitest.mutationtest.report.html.SourceFile@1f44ddab_114'/>
+114
+</td>
+<td class=''>
+<span class='pop'>
+<a href='#grouporg.pitest.mutationtest.report.html.SourceFile@1f44ddab_114'></a>
+<span>
+</span>
+</td>
+<td class='covered'><pre><span  class=''>                this.sijoitusYhteensaKaikki = sijoitusYhteensa;</span></pre></td></tr>
+
+
+<tr>
+<td class='na'>
+<a name='org.pitest.mutationtest.report.html.SourceFile@1f44ddab_115'/>
+115
+</td>
+<td class=''>
+<span class='pop'>
+<a href='#grouporg.pitest.mutationtest.report.html.SourceFile@1f44ddab_115'></a>
+<span>
+</span>
+</td>
+<td class=''><pre><span  class=''>                </span></pre></td></tr>
+
+
+<tr>
+<td class='na'>
+<a name='org.pitest.mutationtest.report.html.SourceFile@1f44ddab_116'/>
+116
+</td>
+<td class=''>
+<span class='pop'>
+<a href='#grouporg.pitest.mutationtest.report.html.SourceFile@1f44ddab_116'></a>
+<span>
+</span>
+</td>
+<td class=''><pre><span  class=''>                //System.out.println(&#34;Sijoitus yhteens&#228;: &#34; + sijoitusYhteensa);</span></pre></td></tr>
+
+
+<tr>
+<td class='na'>
+<a name='org.pitest.mutationtest.report.html.SourceFile@1f44ddab_117'/>
+117
+</td>
+<td class=''>
+<span class='pop'>
+<a href='#grouporg.pitest.mutationtest.report.html.SourceFile@1f44ddab_117'></a>
+<span>
+</span>
+</td>
+<td class=''><pre><span  class=''>                //System.out.println(&#34;Tuotot yhteens&#228;: &#34; + this.tuototYhteensa);</span></pre></td></tr>
+
+
+<tr>
+<td class='na'>
+<a name='org.pitest.mutationtest.report.html.SourceFile@1f44ddab_118'/>
+118
+</td>
+<td class=''>
+<span class='pop'>
+<a href='#grouporg.pitest.mutationtest.report.html.SourceFile@1f44ddab_118'></a>
+<span>
+</span>
+</td>
+<td class=''><pre><span  class=''>                //System.out.println(&#34;Kulut yhteens&#228;: &#34; + this.kulutYhteensa);</span></pre></td></tr>
+
+
+<tr>
+<td class='na'>
+<a name='org.pitest.mutationtest.report.html.SourceFile@1f44ddab_119'/>
+119
+</td>
+<td class=''>
+<span class='pop'>
+<a href='#grouporg.pitest.mutationtest.report.html.SourceFile@1f44ddab_119'></a>
+<span>
+</span>
+</td>
+<td class=''><pre><span  class=''></span></pre></td></tr>
+
+
+<tr>
+<td class='covered'>
+<a name='org.pitest.mutationtest.report.html.SourceFile@1f44ddab_120'/>
+120
+</td>
+<td class=''>
+<span class='pop'>
+<a href='#grouporg.pitest.mutationtest.report.html.SourceFile@1f44ddab_120'></a>
+<span>
+</span>
+</td>
+<td class='covered'><pre><span  class=''>            } else {</span></pre></td></tr>
+
+
+<tr>
+<td class='covered'>
+<a name='org.pitest.mutationtest.report.html.SourceFile@1f44ddab_121'/>
+121
+</td>
+<td class=''>
+<span class='pop'>
+<a href='#grouporg.pitest.mutationtest.report.html.SourceFile@1f44ddab_121'></a>
+<span>
+</span>
+</td>
+<td class='covered'><pre><span  class=''>                this.sijoitusYhteensaKaikki = -1;</span></pre></td></tr>
+
+
+<tr>
+<td class='na'>
+<a name='org.pitest.mutationtest.report.html.SourceFile@1f44ddab_122'/>
+122
+</td>
+<td class=''>
+<span class='pop'>
+<a href='#grouporg.pitest.mutationtest.report.html.SourceFile@1f44ddab_122'></a>
+<span>
+</span>
+</td>
+<td class=''><pre><span  class=''>            }</span></pre></td></tr>
+
+
+<tr>
+<td class='na'>
+<a name='org.pitest.mutationtest.report.html.SourceFile@1f44ddab_123'/>
+123
+</td>
+<td class=''>
+<span class='pop'>
+<a href='#grouporg.pitest.mutationtest.report.html.SourceFile@1f44ddab_123'></a>
+<span>
+</span>
+</td>
+<td class=''><pre><span  class=''>        }</span></pre></td></tr>
+
+
+<tr>
+<td class='na'>
+<a name='org.pitest.mutationtest.report.html.SourceFile@1f44ddab_124'/>
+124
+</td>
+<td class=''>
+<span class='pop'>
+<a href='#grouporg.pitest.mutationtest.report.html.SourceFile@1f44ddab_124'></a>
+<span>
+</span>
+</td>
+<td class=''><pre><span  class=''>            </span></pre></td></tr>
+
+
+<tr>
+<td class='covered'>
+<a name='org.pitest.mutationtest.report.html.SourceFile@1f44ddab_125'/>
+125
+</td>
+<td class='killed'>
+<span class='pop'>
+<a href='#grouporg.pitest.mutationtest.report.html.SourceFile@1f44ddab_125'>1</a>
+<span>
+1. simuloi : replaced return of double value with -(x + 1) for ville/harjoitukset/sijoituslaskuri/logiikka/Simulaattori::simuloi &rarr; KILLED<br/>
+
+</span>
+</td>
+<td class='covered'><pre><span  class='killed'>        return sijoitusYhteensa;</span></pre></td></tr>
+
+
+<tr>
+<td class='na'>
+<a name='org.pitest.mutationtest.report.html.SourceFile@1f44ddab_126'/>
+126
+</td>
+<td class=''>
+<span class='pop'>
+<a href='#grouporg.pitest.mutationtest.report.html.SourceFile@1f44ddab_126'></a>
+<span>
+</span>
+</td>
+<td class=''><pre><span  class=''>    }</span></pre></td></tr>
+
+
+<tr>
+<td class='na'>
+<a name='org.pitest.mutationtest.report.html.SourceFile@1f44ddab_127'/>
+127
+</td>
+<td class=''>
+<span class='pop'>
+<a href='#grouporg.pitest.mutationtest.report.html.SourceFile@1f44ddab_127'></a>
+<span>
+</span>
+</td>
+<td class=''><pre><span  class=''>    </span></pre></td></tr>
+
+
+<tr>
+<td class='na'>
+<a name='org.pitest.mutationtest.report.html.SourceFile@1f44ddab_128'/>
+128
+</td>
+<td class=''>
+<span class='pop'>
+<a href='#grouporg.pitest.mutationtest.report.html.SourceFile@1f44ddab_128'></a>
+<span>
+</span>
+</td>
+<td class=''><pre><span  class=''>}</span></pre></td></tr>
+
+
+
+<tr><td></td><td></td><td><h2>Mutations</h2></td></tr>
+
+<tr>
+<td><a href='#org.pitest.mutationtest.report.html.SourceFile@1f44ddab_46'>46</a></td> 
+<td></td>
+<td>
+
+<a name='grouporg.pitest.mutationtest.report.html.SourceFile@1f44ddab_46'/> 
+
+<p class='KILLED'><span class='pop'>1.<span><b>1</b><br/><b>Location : </b>getSijoitus<br/><b>Killed by : </b>ville.harjoitukset.sijoituslaskuri.logiikka.SimulaattoriTest.getteriHakeeSijoituksen(ville.harjoitukset.sijoituslaskuri.logiikka.SimulaattoriTest)</span></span> replaced return of double value with -(x + 1) for ville/harjoitukset/sijoituslaskuri/logiikka/Simulaattori::getSijoitus &rarr; KILLED</p> 
+</td>
+</tr>
+<tr>
+<td><a href='#org.pitest.mutationtest.report.html.SourceFile@1f44ddab_50'>50</a></td> 
+<td></td>
+<td>
+
+<a name='grouporg.pitest.mutationtest.report.html.SourceFile@1f44ddab_50'/> 
+
+<p class='KILLED'><span class='pop'>1.<span><b>1</b><br/><b>Location : </b>getTuotto<br/><b>Killed by : </b>ville.harjoitukset.sijoituslaskuri.logiikka.SimulaattoriTest.getteriHakeeTuoton(ville.harjoitukset.sijoituslaskuri.logiikka.SimulaattoriTest)</span></span> replaced return of double value with -(x + 1) for ville/harjoitukset/sijoituslaskuri/logiikka/Simulaattori::getTuotto &rarr; KILLED</p> 
+</td>
+</tr>
+<tr>
+<td><a href='#org.pitest.mutationtest.report.html.SourceFile@1f44ddab_54'>54</a></td> 
+<td></td>
+<td>
+
+<a name='grouporg.pitest.mutationtest.report.html.SourceFile@1f44ddab_54'/> 
+
+<p class='KILLED'><span class='pop'>1.<span><b>1</b><br/><b>Location : </b>getKulut<br/><b>Killed by : </b>ville.harjoitukset.sijoituslaskuri.logiikka.SimulaattoriTest.getteriHakeeKulut(ville.harjoitukset.sijoituslaskuri.logiikka.SimulaattoriTest)</span></span> replaced return of double value with -(x + 1) for ville/harjoitukset/sijoituslaskuri/logiikka/Simulaattori::getKulut &rarr; KILLED</p> 
+</td>
+</tr>
+<tr>
+<td><a href='#org.pitest.mutationtest.report.html.SourceFile@1f44ddab_58'>58</a></td> 
+<td></td>
+<td>
+
+<a name='grouporg.pitest.mutationtest.report.html.SourceFile@1f44ddab_58'/> 
+
+<p class='KILLED'><span class='pop'>1.<span><b>1</b><br/><b>Location : </b>getSijoitusLopussa<br/><b>Killed by : </b>ville.harjoitukset.sijoituslaskuri.logiikka.SimulaattoriTest.konstruktoriEiAsetaRahastoa(ville.harjoitukset.sijoituslaskuri.logiikka.SimulaattoriTest)</span></span> replaced return of double value with -(x + 1) for ville/harjoitukset/sijoituslaskuri/logiikka/Simulaattori::getSijoitusLopussa &rarr; KILLED</p> 
+</td>
+</tr>
+<tr>
+<td><a href='#org.pitest.mutationtest.report.html.SourceFile@1f44ddab_69'>69</a></td> 
+<td></td>
+<td>
+
+<a name='grouporg.pitest.mutationtest.report.html.SourceFile@1f44ddab_69'/> 
+
+<p class='KILLED'><span class='pop'>1.<span><b>1</b><br/><b>Location : </b>simuloi<br/><b>Killed by : </b>ville.harjoitukset.sijoituslaskuri.logiikka.SimulaattoriTest.getteriHakeeSijoituksen(ville.harjoitukset.sijoituslaskuri.logiikka.SimulaattoriTest)</span></span> changed conditional boundary &rarr; KILLED</p> <p class='KILLED'><span class='pop'>2.<span><b>2</b><br/><b>Location : </b>simuloi<br/><b>Killed by : </b>ville.harjoitukset.sijoituslaskuri.logiikka.SimulaattoriTest.getteriHakeeSijoituksen(ville.harjoitukset.sijoituslaskuri.logiikka.SimulaattoriTest)</span></span> Changed increment from 1 to -1 &rarr; KILLED</p> <p class='KILLED'><span class='pop'>3.<span><b>3</b><br/><b>Location : </b>simuloi<br/><b>Killed by : </b>ville.harjoitukset.sijoituslaskuri.logiikka.SimulaattoriTest.konstruktoriEiAsetaRahastoa(ville.harjoitukset.sijoituslaskuri.logiikka.SimulaattoriTest)</span></span> negated conditional &rarr; KILLED</p> 
+</td>
+</tr>
+<tr>
+<td><a href='#org.pitest.mutationtest.report.html.SourceFile@1f44ddab_70'>70</a></td> 
+<td></td>
+<td>
+
+<a name='grouporg.pitest.mutationtest.report.html.SourceFile@1f44ddab_70'/> 
+
+<p class='KILLED'><span class='pop'>1.<span><b>1</b><br/><b>Location : </b>simuloi<br/><b>Killed by : </b>ville.harjoitukset.sijoituslaskuri.logiikka.SimulaattoriTest.konstruktoriEiAsetaRahastoa(ville.harjoitukset.sijoituslaskuri.logiikka.SimulaattoriTest)</span></span> negated conditional &rarr; KILLED</p> 
+</td>
+</tr>
+<tr>
+<td><a href='#org.pitest.mutationtest.report.html.SourceFile@1f44ddab_90'>90</a></td> 
+<td></td>
+<td>
+
+<a name='grouporg.pitest.mutationtest.report.html.SourceFile@1f44ddab_90'/> 
+
+<p class='KILLED'><span class='pop'>1.<span><b>1</b><br/><b>Location : </b>simuloi<br/><b>Killed by : </b>ville.harjoitukset.sijoituslaskuri.logiikka.SimulaattoriTest.testArvoLopussa(ville.harjoitukset.sijoituslaskuri.logiikka.SimulaattoriTest)</span></span> Replaced double division with multiplication &rarr; KILLED</p> <p class='KILLED'><span class='pop'>2.<span><b>2</b><br/><b>Location : </b>simuloi<br/><b>Killed by : </b>ville.harjoitukset.sijoituslaskuri.logiikka.SimulaattoriTest.testArvoLopussa(ville.harjoitukset.sijoituslaskuri.logiikka.SimulaattoriTest)</span></span> Replaced double multiplication with division &rarr; KILLED</p> <p class='KILLED'><span class='pop'>3.<span><b>3</b><br/><b>Location : </b>simuloi<br/><b>Killed by : </b>ville.harjoitukset.sijoituslaskuri.logiikka.SimulaattoriTest.testArvoLopussa(ville.harjoitukset.sijoituslaskuri.logiikka.SimulaattoriTest)</span></span> Replaced double division with multiplication &rarr; KILLED</p> <p class='KILLED'><span class='pop'>4.<span><b>4</b><br/><b>Location : </b>simuloi<br/><b>Killed by : </b>ville.harjoitukset.sijoituslaskuri.logiikka.SimulaattoriTest.testArvoLopussa(ville.harjoitukset.sijoituslaskuri.logiikka.SimulaattoriTest)</span></span> Replaced double multiplication with division &rarr; KILLED</p> 
+</td>
+</tr>
+<tr>
+<td><a href='#org.pitest.mutationtest.report.html.SourceFile@1f44ddab_91'>91</a></td> 
+<td></td>
+<td>
+
+<a name='grouporg.pitest.mutationtest.report.html.SourceFile@1f44ddab_91'/> 
+
+<p class='KILLED'><span class='pop'>1.<span><b>1</b><br/><b>Location : </b>simuloi<br/><b>Killed by : </b>ville.harjoitukset.sijoituslaskuri.logiikka.SimulaattoriTest.kulutYhteensa(ville.harjoitukset.sijoituslaskuri.logiikka.SimulaattoriTest)</span></span> Replaced double addition with subtraction &rarr; KILLED</p> 
+</td>
+</tr>
+<tr>
+<td><a href='#org.pitest.mutationtest.report.html.SourceFile@1f44ddab_93'>93</a></td> 
+<td></td>
+<td>
+
+<a name='grouporg.pitest.mutationtest.report.html.SourceFile@1f44ddab_93'/> 
+
+<p class='KILLED'><span class='pop'>1.<span><b>1</b><br/><b>Location : </b>simuloi<br/><b>Killed by : </b>ville.harjoitukset.sijoituslaskuri.logiikka.SimulaattoriTest.testArvoLopussa(ville.harjoitukset.sijoituslaskuri.logiikka.SimulaattoriTest)</span></span> Replaced double division with multiplication &rarr; KILLED</p> <p class='KILLED'><span class='pop'>2.<span><b>2</b><br/><b>Location : </b>simuloi<br/><b>Killed by : </b>ville.harjoitukset.sijoituslaskuri.logiikka.SimulaattoriTest.testArvoLopussa(ville.harjoitukset.sijoituslaskuri.logiikka.SimulaattoriTest)</span></span> Replaced double multiplication with division &rarr; KILLED</p> <p class='KILLED'><span class='pop'>3.<span><b>3</b><br/><b>Location : </b>simuloi<br/><b>Killed by : </b>ville.harjoitukset.sijoituslaskuri.logiikka.SimulaattoriTest.testArvoLopussa(ville.harjoitukset.sijoituslaskuri.logiikka.SimulaattoriTest)</span></span> Replaced double subtraction with addition &rarr; KILLED</p> 
+</td>
+</tr>
+<tr>
+<td><a href='#org.pitest.mutationtest.report.html.SourceFile@1f44ddab_96'>96</a></td> 
+<td></td>
+<td>
+
+<a name='grouporg.pitest.mutationtest.report.html.SourceFile@1f44ddab_96'/> 
+
+<p class='KILLED'><span class='pop'>1.<span><b>1</b><br/><b>Location : </b>simuloi<br/><b>Killed by : </b>ville.harjoitukset.sijoituslaskuri.logiikka.SimulaattoriTest.testArvoLopussa(ville.harjoitukset.sijoituslaskuri.logiikka.SimulaattoriTest)</span></span> changed conditional boundary &rarr; KILLED</p> <p class='TIMED_OUT'><span class='pop'>2.<span><b>2</b><br/><b>Location : </b>simuloi<br/><b>Killed by : </b>none</span></span> Changed increment from 1 to -1 &rarr; TIMED_OUT</p> <p class='KILLED'><span class='pop'>3.<span><b>3</b><br/><b>Location : </b>simuloi<br/><b>Killed by : </b>ville.harjoitukset.sijoituslaskuri.logiikka.SimulaattoriTest.testArvoLopussa(ville.harjoitukset.sijoituslaskuri.logiikka.SimulaattoriTest)</span></span> negated conditional &rarr; KILLED</p> 
+</td>
+</tr>
+<tr>
+<td><a href='#org.pitest.mutationtest.report.html.SourceFile@1f44ddab_97'>97</a></td> 
+<td></td>
+<td>
+
+<a name='grouporg.pitest.mutationtest.report.html.SourceFile@1f44ddab_97'/> 
+
+<p class='KILLED'><span class='pop'>1.<span><b>1</b><br/><b>Location : </b>simuloi<br/><b>Killed by : </b>ville.harjoitukset.sijoituslaskuri.logiikka.SimulaattoriTest.testArvoLopussa(ville.harjoitukset.sijoituslaskuri.logiikka.SimulaattoriTest)</span></span> Replaced double division with multiplication &rarr; KILLED</p> <p class='KILLED'><span class='pop'>2.<span><b>2</b><br/><b>Location : </b>simuloi<br/><b>Killed by : </b>ville.harjoitukset.sijoituslaskuri.logiikka.SimulaattoriTest.testArvoLopussa(ville.harjoitukset.sijoituslaskuri.logiikka.SimulaattoriTest)</span></span> Replaced double multiplication with division &rarr; KILLED</p> 
+</td>
+</tr>
+<tr>
+<td><a href='#org.pitest.mutationtest.report.html.SourceFile@1f44ddab_98'>98</a></td> 
+<td></td>
+<td>
+
+<a name='grouporg.pitest.mutationtest.report.html.SourceFile@1f44ddab_98'/> 
+
+<p class='KILLED'><span class='pop'>1.<span><b>1</b><br/><b>Location : </b>simuloi<br/><b>Killed by : </b>ville.harjoitukset.sijoituslaskuri.logiikka.SimulaattoriTest.getteriHakeeKulut(ville.harjoitukset.sijoituslaskuri.logiikka.SimulaattoriTest)</span></span> Replaced double addition with subtraction &rarr; KILLED</p> 
+</td>
+</tr>
+<tr>
+<td><a href='#org.pitest.mutationtest.report.html.SourceFile@1f44ddab_100'>100</a></td> 
+<td></td>
+<td>
+
+<a name='grouporg.pitest.mutationtest.report.html.SourceFile@1f44ddab_100'/> 
+
+<p class='KILLED'><span class='pop'>1.<span><b>1</b><br/><b>Location : </b>simuloi<br/><b>Killed by : </b>ville.harjoitukset.sijoituslaskuri.logiikka.SimulaattoriTest.testArvoLopussa(ville.harjoitukset.sijoituslaskuri.logiikka.SimulaattoriTest)</span></span> Replaced double division with multiplication &rarr; KILLED</p> <p class='KILLED'><span class='pop'>2.<span><b>2</b><br/><b>Location : </b>simuloi<br/><b>Killed by : </b>ville.harjoitukset.sijoituslaskuri.logiikka.SimulaattoriTest.testArvoLopussa(ville.harjoitukset.sijoituslaskuri.logiikka.SimulaattoriTest)</span></span> Replaced double multiplication with division &rarr; KILLED</p> 
+</td>
+</tr>
+<tr>
+<td><a href='#org.pitest.mutationtest.report.html.SourceFile@1f44ddab_101'>101</a></td> 
+<td></td>
+<td>
+
+<a name='grouporg.pitest.mutationtest.report.html.SourceFile@1f44ddab_101'/> 
+
+<p class='KILLED'><span class='pop'>1.<span><b>1</b><br/><b>Location : </b>simuloi<br/><b>Killed by : </b>ville.harjoitukset.sijoituslaskuri.logiikka.SimulaattoriTest.getteriHakeeTuoton(ville.harjoitukset.sijoituslaskuri.logiikka.SimulaattoriTest)</span></span> Replaced double addition with subtraction &rarr; KILLED</p> 
+</td>
+</tr>
+<tr>
+<td><a href='#org.pitest.mutationtest.report.html.SourceFile@1f44ddab_103'>103</a></td> 
+<td></td>
+<td>
+
+<a name='grouporg.pitest.mutationtest.report.html.SourceFile@1f44ddab_103'/> 
+
+<p class='KILLED'><span class='pop'>1.<span><b>1</b><br/><b>Location : </b>simuloi<br/><b>Killed by : </b>ville.harjoitukset.sijoituslaskuri.logiikka.SimulaattoriTest.testArvoLopussa(ville.harjoitukset.sijoituslaskuri.logiikka.SimulaattoriTest)</span></span> Replaced double addition with subtraction &rarr; KILLED</p> <p class='KILLED'><span class='pop'>2.<span><b>2</b><br/><b>Location : </b>simuloi<br/><b>Killed by : </b>ville.harjoitukset.sijoituslaskuri.logiikka.SimulaattoriTest.testArvoLopussa(ville.harjoitukset.sijoituslaskuri.logiikka.SimulaattoriTest)</span></span> Replaced double subtraction with addition &rarr; KILLED</p> 
+</td>
+</tr>
+<tr>
+<td><a href='#org.pitest.mutationtest.report.html.SourceFile@1f44ddab_107'>107</a></td> 
+<td></td>
+<td>
+
+<a name='grouporg.pitest.mutationtest.report.html.SourceFile@1f44ddab_107'/> 
+
+<p class='KILLED'><span class='pop'>1.<span><b>1</b><br/><b>Location : </b>simuloi<br/><b>Killed by : </b>ville.harjoitukset.sijoituslaskuri.logiikka.SimulaattoriTest.testArvoLopussa(ville.harjoitukset.sijoituslaskuri.logiikka.SimulaattoriTest)</span></span> Replaced double division with multiplication &rarr; KILLED</p> <p class='KILLED'><span class='pop'>2.<span><b>2</b><br/><b>Location : </b>simuloi<br/><b>Killed by : </b>ville.harjoitukset.sijoituslaskuri.logiikka.SimulaattoriTest.testArvoLopussa(ville.harjoitukset.sijoituslaskuri.logiikka.SimulaattoriTest)</span></span> Replaced double multiplication with division &rarr; KILLED</p> 
+</td>
+</tr>
+<tr>
+<td><a href='#org.pitest.mutationtest.report.html.SourceFile@1f44ddab_108'>108</a></td> 
+<td></td>
+<td>
+
+<a name='grouporg.pitest.mutationtest.report.html.SourceFile@1f44ddab_108'/> 
+
+<p class='KILLED'><span class='pop'>1.<span><b>1</b><br/><b>Location : </b>simuloi<br/><b>Killed by : </b>ville.harjoitukset.sijoituslaskuri.logiikka.SimulaattoriTest.kulutYhteensa(ville.harjoitukset.sijoituslaskuri.logiikka.SimulaattoriTest)</span></span> Replaced double addition with subtraction &rarr; KILLED</p> 
+</td>
+</tr>
+<tr>
+<td><a href='#org.pitest.mutationtest.report.html.SourceFile@1f44ddab_110'>110</a></td> 
+<td></td>
+<td>
+
+<a name='grouporg.pitest.mutationtest.report.html.SourceFile@1f44ddab_110'/> 
+
+<p class='KILLED'><span class='pop'>1.<span><b>1</b><br/><b>Location : </b>simuloi<br/><b>Killed by : </b>ville.harjoitukset.sijoituslaskuri.logiikka.SimulaattoriTest.testArvoLopussa(ville.harjoitukset.sijoituslaskuri.logiikka.SimulaattoriTest)</span></span> Replaced double subtraction with addition &rarr; KILLED</p> 
+</td>
+</tr>
+<tr>
+<td><a href='#org.pitest.mutationtest.report.html.SourceFile@1f44ddab_113'>113</a></td> 
+<td></td>
+<td>
+
+<a name='grouporg.pitest.mutationtest.report.html.SourceFile@1f44ddab_113'/> 
+
+<p class='KILLED'><span class='pop'>1.<span><b>1</b><br/><b>Location : </b>simuloi<br/><b>Killed by : </b>ville.harjoitukset.sijoituslaskuri.logiikka.SimulaattoriTest.testArvoLopussa(ville.harjoitukset.sijoituslaskuri.logiikka.SimulaattoriTest)</span></span> Replaced double addition with subtraction &rarr; KILLED</p> 
+</td>
+</tr>
+<tr>
+<td><a href='#org.pitest.mutationtest.report.html.SourceFile@1f44ddab_125'>125</a></td> 
+<td></td>
+<td>
+
+<a name='grouporg.pitest.mutationtest.report.html.SourceFile@1f44ddab_125'/> 
+
+<p class='KILLED'><span class='pop'>1.<span><b>1</b><br/><b>Location : </b>simuloi<br/><b>Killed by : </b>ville.harjoitukset.sijoituslaskuri.logiikka.SimulaattoriTest.testArvoLopussa(ville.harjoitukset.sijoituslaskuri.logiikka.SimulaattoriTest)</span></span> replaced return of double value with -(x + 1) for ville/harjoitukset/sijoituslaskuri/logiikka/Simulaattori::simuloi &rarr; KILLED</p> 
+</td>
+</tr>
+
+</table>
+
+
+<h2>Active mutators</h2>
+<ul>
+<li class='mutator'>INCREMENTS_MUTATOR</li>
+<li class='mutator'>VOID_METHOD_CALL_MUTATOR</li>
+<li class='mutator'>RETURN_VALS_MUTATOR</li>
+<li class='mutator'>MATH_MUTATOR</li>
+<li class='mutator'>NEGATE_CONDITIONALS_MUTATOR</li>
+<li class='mutator'>INVERT_NEGS_MUTATOR</li>
+<li class='mutator'>CONDITIONALS_BOUNDARY_MUTATOR</li>
+
+</ul>
+
+<h2>Tests examined</h2>
+<ul>
+<li>ville.harjoitukset.sijoituslaskuri.logiikka.SimulaattoriTest.testArvoLopussa(ville.harjoitukset.sijoituslaskuri.logiikka.SimulaattoriTest) (0 ms)</li><li>ville.harjoitukset.sijoituslaskuri.logiikka.SimulaattoriTest.konstruktoriEiAsetaRahastoa(ville.harjoitukset.sijoituslaskuri.logiikka.SimulaattoriTest) (1 ms)</li><li>ville.harjoitukset.sijoituslaskuri.logiikka.SimulaattoriTest.getteriHakeeTuoton(ville.harjoitukset.sijoituslaskuri.logiikka.SimulaattoriTest) (1 ms)</li><li>ville.harjoitukset.sijoituslaskuri.logiikka.SimulaattoriTest.getteriHakeeKulut(ville.harjoitukset.sijoituslaskuri.logiikka.SimulaattoriTest) (1 ms)</li><li>ville.harjoitukset.sijoituslaskuri.logiikka.SimulaattoriTest.kulutYhteensa(ville.harjoitukset.sijoituslaskuri.logiikka.SimulaattoriTest) (1 ms)</li><li>ville.harjoitukset.sijoituslaskuri.logiikka.SimulaattoriTest.getteriHakeeSijoituksen(ville.harjoitukset.sijoituslaskuri.logiikka.SimulaattoriTest) (1 ms)</li>
+</ul>
+
+<br/>
+
+Report generated by <a href='http://pitest.org'>PIT</a> 1.1.8
+
+</body>
+</html>

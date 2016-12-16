@@ -52,4 +52,30 @@ public class SimulaattoriTest {
         assertTrue(s2.getSijoitusLopussa() == -1);
     }
     
+    @Test
+    public void getteriHakeeSijoituksen() {
+        s2.simuloi();
+        assertTrue(s2.getSijoitus() == su.getSijoitus());
+    }
+    
+    @Test
+    public void getteriHakeeTuoton() {
+        s.simuloi();
+        assertTrue(s.getTuotto() > 0);
+    }
+    
+    @Test
+    public void getteriHakeeKulut() {
+        s.simuloi();
+        assertTrue(s.getKulut() > 0);
+    }
+    
+    @Test
+    public void kulutYhteensa() {
+        s.simuloi();
+        s2.simuloi();
+        assertTrue(s.getKulut() > 1484 && s.getKulut() < 1486);
+        assertTrue(s2.getKulut() == 0);
+    }
+    
 }
